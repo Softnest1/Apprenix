@@ -62,6 +62,17 @@ const LEVELS = [
     glow: 'shadow-[0_4px_32px_0_rgba(107,63,160,0.18)]',
     features: ['Mode Socratique', 'Wiki personnel', 'Pomodoro++', 'Remix de cours'],
   },
+  {
+    id: 'adapte',
+    emoji: '💚',
+    title: 'ULIS & SEGPA',
+    subtitle: 'Dispositif adapté · Apprentissage à ton rythme',
+    description: 'Explications en mots simples, exercices étape par étape, flashcards visuelles et ressources inclusion — conçus spécialement pour toi.',
+    gradient: 'from-[#15803d] to-[#166534]',
+    border: 'border-[#15803d]/30',
+    glow: 'shadow-[0_4px_32px_0_rgba(21,128,61,0.18)]',
+    features: ['Mode ULIS/SEGPA 💚', 'Phrases courtes', 'Flashcards visuelles', 'Ressources & droits'],
+  },
 ];
 
 // ─── Catégories d'outils (page espace étudiant visiteur) ──────────────────────

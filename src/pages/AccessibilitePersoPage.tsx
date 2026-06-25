@@ -273,8 +273,10 @@ export default function AccessibilitePersoPage() {
                     <button
                       key={f.id}
                       type="button"
+                      aria-pressed={prefs.font === f.id}
+                      aria-label={`Police ${f.label}`}
                       onClick={() => set('font', f.id)}
-                      className={`rounded-lg border p-3 text-center transition-all ${
+                      className={`min-h-[44px] rounded-lg border p-3 text-center transition-all ${
                         prefs.font === f.id
                           ? 'border-primary bg-primary/5'
                           : 'border-border hover:border-primary/40'
@@ -331,9 +333,10 @@ export default function AccessibilitePersoPage() {
                       <button
                         key={b.id}
                         type="button"
-                        title={b.label}
+                        aria-label={b.label}
+                        aria-pressed={prefs.background === b.id}
                         onClick={() => set('background', b.id)}
-                        className={`w-10 h-10 rounded-lg border-2 transition-all ${
+                        className={`min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg border-2 transition-all ${
                           prefs.background === b.id ? 'border-primary scale-110' : 'border-border hover:border-primary/50'
                         }`}
                         style={{ background: b.css }}
@@ -348,14 +351,15 @@ export default function AccessibilitePersoPage() {
                       <button
                         key={id}
                         type="button"
+                        aria-pressed={prefs.contrast === id}
                         onClick={() => set('contrast', id)}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border transition-all ${
+                        className={`min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-full text-sm border transition-all ${
                           prefs.contrast === id
                             ? 'bg-primary text-primary-foreground border-primary'
                             : 'bg-background text-muted-foreground border-border hover:border-primary/50'
                         }`}
                       >
-                        <Icon className="w-3.5 h-3.5" /> {label}
+                        <Icon className="w-3.5 h-3.5" aria-hidden="true" /> {label}
                       </button>
                     ))}
                   </div>
@@ -367,8 +371,9 @@ export default function AccessibilitePersoPage() {
                       <button
                         key={d.id}
                         type="button"
+                        aria-pressed={prefs.daltonism === d.id}
                         onClick={() => set('daltonism', d.id)}
-                        className={`w-full text-left px-3 py-2 rounded-lg border text-sm transition-all ${
+                        className={`min-h-[44px] w-full text-left px-3 py-2 rounded-lg border text-sm transition-all ${
                           prefs.daltonism === d.id
                             ? 'border-primary bg-primary/5 text-foreground font-medium'
                             : 'border-border text-muted-foreground hover:border-primary/40'

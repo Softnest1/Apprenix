@@ -908,13 +908,15 @@ export const EspaceNiveauContent: React.FC<{ urlCategory?: string }> = ({ urlCat
           </p>
 
           {/* Sélecteur sous-niveau — pills blanches */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4" role="group" aria-label="Choisir un sous-niveau">
             {config.levelGroup.map(l => (
               <button type="button" key={l} onClick={() => handleLevelSwitch(l)}
+                aria-pressed={level === l}
+                aria-label={`Passer en ${l}`}
                 className={cn(
-                  'px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all duration-150',
+                  'min-h-[44px] px-4 py-2 rounded-full text-xs font-bold border transition-all duration-150',
                   level === l
-                    ? 'bg-white text-gray-900 border-white shadow-md scale-105'
+                    ? 'bg-white text-foreground border-white shadow-md scale-105'
                     : 'bg-white/15 text-white border-white/30 hover:bg-white/25'
                 )}>
                 {l}
