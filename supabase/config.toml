@@ -1,0 +1,14 @@
+[auth.email]
+enable_confirmations = false
+
+[auth.smtp]
+enabled = true
+host = "smtp-relay.brevo.com"
+port = 587
+user = "env(BREVO_SMTP_USER)"
+pass = "env(BREVO_SMTP_PASS)"
+admin_email = "af87bc001@smtp-brevo.com"
+sender_name = "Apprenix"
+
+[auth.phone]
+enable_confirmations = false

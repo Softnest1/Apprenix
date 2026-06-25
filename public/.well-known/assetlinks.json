@@ -1,0 +1,10 @@
+[
+  {
+    "comment": "Aucune application native enregistrée — liens web non capturés par une app Android.",
+    "relation": [],
+    "target": {
+      "namespace": "web",
+      "site": "https://apprenix.org"
+    }
+  }
+]

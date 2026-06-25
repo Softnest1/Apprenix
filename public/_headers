@@ -1,0 +1,92 @@
+# ============================================================
+# _headers — Vercel headers config — Apprenix
+# Compatibilité : Chrome, Firefox, Opera, Mi Browser, Safari,
+#                 Samsung Internet, Edge, TV WebOS/Tizen, CarPlay
+# Mise à jour : 2026-06-25
+# ============================================================
+
+# ── Toutes les pages ─────────────────────────────────────────
+/*
+  # Sécurité & navigateurs
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  # HSTS — force HTTPS (Chrome, Firefox, Safari, Opera, Edge, Mi Browser…)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # Cross-origin — requis pour fonts + OG image
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Embedder-Policy: unsafe-none
+  # Compatibilité IE/Edge legacy
+  X-UA-Compatible: IE=edge
+  # Indexation : autorise les moteurs sauf crawlers IA (voir robots.txt)
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large
+
+# ── HTML — no-cache pour SPA React (toujours index.html frais) ──
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+
+# ── Assets JS/CSS — cache agressif 1 an (hash Vite dans le nom) ──
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Fonts — cache 1 an ───────────────────────────────────────
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# ── Images — cache 30 jours ──────────────────────────────────
+/images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/icons/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# ── Favicon & manifest — cache 7 jours ───────────────────────
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
+/manifest.json
+  Cache-Control: public, max-age=604800
+  Content-Type: application/manifest+json
+
+# ── SEO critical — sitemap & robots ─────────────────────────
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/sitemap-index.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+
+# ── Service Worker — jamais en cache ─────────────────────────
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate

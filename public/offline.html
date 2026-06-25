@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hors ligne — Apprenix</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fb;
+      color: #1a1a2e;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+    }
+    .icon { font-size: 52px; margin-bottom: 14px; display: block; }
+    h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #64748b;
+      max-width: 320px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Fonctions disponibles hors ligne */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 24px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .feature-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      padding: 12px 16px 8px;
+      text-align: left;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-top: 1px solid #f1f5f9;
+      text-align: left;
+    }
+    .feature-icon { font-size: 18px; width: 24px; text-align: center; }
+    .feature-name { font-size: 0.88rem; font-weight: 600; color: #1e293b; }
+    .feature-desc { font-size: 0.75rem; color: #64748b; }
+    .badge-ok {
+      margin-left: auto;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #dcfce7;
+      color: #16a34a;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .badge-no {
+      margin-left: auto;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #94a3b8;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ff6b0a;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .15s;
+      margin-bottom: 12px;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #ff6b0a;
+      border: 1.5px solid #ff6b0a;
+      border-radius: 12px;
+      padding: 11px 24px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .tip {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      max-width: 300px;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <img src="/icons/icon-192x192.png" alt="Apprenix" class="logo" onerror="this.style.display='none'" />
+  <span class="icon">📶</span>
+  <h1>Vous êtes hors ligne</h1>
+  <p class="subtitle">
+    Pas de connexion détectée — mais Apprenix continue de fonctionner partiellement grâce au cache.
+  </p>
+
+  <div class="features">
+    <div class="feature-title">Ce qui fonctionne hors ligne</div>
+    <div class="feature">
+      <span class="feature-icon">🃏</span>
+      <div>
+        <div class="feature-name">Flashcards</div>
+        <div class="feature-desc">Révision des cartes enregistrées</div>
+      </div>
+      <span class="badge-ok">✓ Dispo</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">📝</span>
+      <div>
+        <div class="feature-name">Notes</div>
+        <div class="feature-desc">Lecture de vos notes sauvegardées</div>
+      </div>
+      <span class="badge-ok">✓ Dispo</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">📅</span>
+      <div>
+        <div class="feature-name">Planning</div>
+        <div class="feature-desc">Consultation de votre agenda</div>
+      </div>
+      <span class="badge-ok">✓ Dispo</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">📚</span>
+      <div>
+        <div class="feature-name">Ressources</div>
+        <div class="feature-desc">Liens officiels (liens externes exclus)</div>
+      </div>
+      <span class="badge-ok">✓ Dispo</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🤖</span>
+      <div>
+        <div class="feature-name">Aide IA</div>
+        <div class="feature-desc">Requiert une connexion Internet</div>
+      </div>
+      <span class="badge-no">Hors ligne</span>
+    </div>
+  </div>
+
+  <button class="btn" onclick="window.location.reload()">
+    🔄 Réessayer la connexion
+  </button>
+  <a class="btn-secondary" href="/">
+    ← Retour à l'accueil
+  </a>
+
+  <p class="tip">
+    💡 <strong>Conseil :</strong> installez Apprenix sur votre écran d'accueil
+    pour un accès hors ligne optimal, même en forêt ou en montagne.
+    Le contenu est mis en cache automatiquement lors de votre dernière visite.
+  </p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+// Utilitaire SSE — consommation du flux Server-Sent Events depuis les Edge Functions
+
+import { createParser } from "eventsource-parser";
+import ky, { type AfterResponseHook } from "ky";
+
+export interface SSEOptions {
+  onData: (data: string) => void;
+  onEvent?: (event: unknown) => void;
+  onCompleted?: (error?: Error) => void;
+  onAborted?: () => void;
+}
+
+export function createSSEHook(options: SSEOptions): AfterResponseHook {
+  return async (_request, _opts, response) => {
+    if (!response.ok || !response.body) return;
+
+    let done = false;
+    const finish = (err?: Error) => {
+      if (!done) {
+        done = true;
+        options.onCompleted?.(err);
+      }
+    };
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder("utf8");
+    const parser = createParser({
+      onEvent: (event) => {
+        if (!event.data) return;
+        options.onEvent?.(event);
+        for (const chunk of event.data.split("\n")) {
+          options.onData(chunk);
+        }
+      },
+    });
+
+    const read = (): void => {
+      reader
+        .read()
+        .then(({ done: streamDone, value }) => {
+          if (streamDone) {
+            finish();
+            return;
+          }
+          parser.feed(decoder.decode(value, { stream: true }));
+          read();
+        })
+        .catch((err) => {
+          finish(err as Error);
+        });
+    };
+    read();
+    return response;
+  };
+}
+
+export interface StreamRequestOptions {
+  functionUrl: string;
+  requestBody: unknown;
+  supabaseAnonKey: string;
+  onData: (data: string) => void;
+  onComplete: () => void;
+  onError: (error: Error) => void;
+  signal?: AbortSignal;
+}
+
+export async function sendStreamRequest(options: StreamRequestOptions): Promise<void> {
+  const { functionUrl, requestBody, supabaseAnonKey, onData, onComplete, onError, signal } =
+    options;
+
+  const sseHook = createSSEHook({
+    onData,
+    onCompleted: (err) => (err ? onError(err) : onComplete()),
+    onAborted: () => { /* flux SSE interrompu — erreur gérée en amont */ },
+  });
+
+  try {
+    await ky.post(functionUrl, {
+      json: requestBody,
+      headers: {
+        Authorization: `Bearer ${supabaseAnonKey}`,
+        apikey: supabaseAnonKey,
+        "Content-Type": "application/json",
+      },
+      signal,
+      timeout: 90_000,
+      hooks: { afterResponse: [sseHook] },
+    });
+  } catch (err) {
+    if (!signal?.aborted) onError(err as Error);
+  }
+}

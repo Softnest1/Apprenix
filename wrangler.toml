@@ -1,0 +1,16 @@
+# Configuration Cloudflare Pages — Apprenix
+# ⚠️ Remplacer "apprenix" par le nom exact de votre projet Cloudflare Pages
+
+name = "apprenix"
+compatibility_date = "2024-01-01"
+
+[env.production]
+# Domaine personnalisé à configurer dans le dashboard Cloudflare
+# quand vous aurez acheté votre domaine
+
+[build]
+command = "pnpm install && pnpm vite build"
+destination = "dist"
+
+[build.environment]
+NODE_VERSION = "20"

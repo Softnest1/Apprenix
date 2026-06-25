@@ -1,0 +1,141 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# Déploiement automatique quotidien — Apprenix  v4
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# POURQUOI CE WORKFLOW EXISTE
+#   Vercel redéploie apprenix.xyz à chaque push sur master.
+#   Ce workflow garantit un push quotidien même sans commit humain
+#   → le site est toujours à la dernière version pour tous les appareils.
+#
+# PLANIFICATION
+#   • 06h00 UTC = 08h00 Paris — unique déploiement quotidien
+#
+# STRATÉGIE PUSH INFAILLIBLE
+#   1. git reset --hard origin/master  → alignement exact sur le remote
+#   2. Modification last-deploy.json   → heartbeat
+#   3. git push origin master          → push simple, jamais de divergence
+#
+# CONCURRENCY : INTENTIONNELLEMENT ABSENT
+#   cancel-in-progress: true générait des emails "No jobs were run" quand
+#   un run manuel et le cron planifié se chevauchaient (le 1er était annulé).
+#   → Solution : pas de concurrency = chaque run s'exécute indépendamment.
+#   Un seul cron par jour → pas de risque de doublon.
+#
+# BUILD/LINT : INTENTIONNELLEMENT ABSENTS
+#   Le rôle de ce workflow est uniquement de pousser un heartbeat vers Vercel.
+#   La validation (TypeScript + Biome + Build) est assurée par ci.yml à chaque
+#   vrai commit de code. Dupliquer ces étapes ici consomme des minutes CI
+#   inutilement et ajoute des points de défaillance sans valeur ajoutée.
+#
+# ══════════════════════════════════════════════════════════════════════════════
+
+name: 🔄 Déploiement quotidien automatique
+
+on:
+  # ── Cron unique — 06h00 UTC = 08h00 Paris ─────────────────────────────────
+  schedule:
+    - cron: '0 6 * * *'
+
+  # ── Déclenchement manuel depuis GitHub Actions ────────────────────────────
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Raison du déploiement manuel'
+        required: false
+        default: 'Déploiement manuel'
+
+# ── Permissions : écriture nécessaire pour le commit automatique ──────────────
+permissions:
+  contents: write
+
+# ── PAS de concurrency — évite les "No jobs were run" lors de chevauchements ──
+
+jobs:
+  daily-deploy:
+    name: 🚀 Heartbeat → Vercel
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # ── 1. Checkout complet avec droits d'écriture ────────────────────────
+      - name: 📥 Checkout master
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          ref: master
+
+      # ── 2. Configurer Git ─────────────────────────────────────────────────
+      - name: 👤 Configurer Git
+        run: |
+          git config user.name  "Apprenix Bot"
+          git config user.email "bot@apprenix.fr"
+
+      # ── 3. Alignement sur origin/master — évite tout conflit de push ──────
+      - name: 🔄 Reset propre sur origin/master
+        run: |
+          git fetch origin master --prune
+          git reset --hard origin/master
+          echo "✅ HEAD aligné : $(git log -1 --oneline)"
+
+      # ── 4. Mettre à jour le fichier heartbeat ─────────────────────────────
+      - name: 📝 Mise à jour last-deploy.json
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          DATE_FR=$(date -u +"%d/%m/%Y à %Hh%M UTC")
+          TRIGGER="${{ github.event_name }}"
+          REASON="${{ github.event.inputs.reason || 'Déploiement automatique quotidien' }}"
+
+          mkdir -p public
+          cat > public/last-deploy.json << EOF
+          {
+            "lastDeploy": "$TIMESTAMP",
+            "dateFr":     "$DATE_FR",
+            "trigger":    "$TRIGGER",
+            "reason":     "$REASON",
+            "runId":      "${{ github.run_id }}",
+            "status":     "success",
+            "branch":     "master",
+            "site":       "https://apprenix.xyz"
+          }
+          EOF
+          echo "✅ last-deploy.json : $DATE_FR"
+
+      # ── 5. Commit + Push → Vercel redéploie automatiquement ───────────────
+      # [skip ci] → ci.yml NE SE DÉCLENCHE PAS sur ce commit heartbeat
+      # paths-ignore dans ci.yml protège aussi last-deploy.json (double garde)
+      - name: 🚀 Commit + Push → Vercel
+        run: |
+          git add public/last-deploy.json
+
+          if git diff --cached --quiet; then
+            git commit --allow-empty \
+              -m "chore: déploiement automatique [$(date -u +'%Y-%m-%d %H:%M UTC')] [skip ci]"
+          else
+            git commit \
+              -m "chore: heartbeat [$(date -u +'%Y-%m-%d %H:%M UTC')] — apprenix.xyz [skip ci]"
+          fi
+
+          git push origin master --force-with-lease
+          echo "✅ Push OK → Vercel redéploie automatiquement"
+
+      # ── 6. Vercel Deploy Hook (optionnel — si VERCEL_DEPLOY_HOOK_URL défini) ─
+      - name: 🌐 Vercel Deploy Hook
+        if: ${{ env.VERCEL_DEPLOY_HOOK_URL != '' }}
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "$VERCEL_DEPLOY_HOOK_URL")
+          if [ "$HTTP_STATUS" = "201" ]; then
+            echo "✅ Vercel Deploy Hook déclenché (HTTP $HTTP_STATUS)"
+          else
+            echo "⚠️  Vercel Deploy Hook — réponse $HTTP_STATUS (non bloquant)"
+          fi
+        continue-on-error: true
+
+      # ── 7. Résumé ──────────────────────────────────────────────────────────
+      - name: 📊 Résumé
+        run: |
+          echo "✅ Apprenix déployé — $(date -u +'%d/%m/%Y %H:%M UTC')"
+          echo "🌐 https://apprenix.xyz"

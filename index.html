@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<!-- v1633 -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- ── Viewport — compatible tous appareils (iPhone SE → iPad Pro → 4K) ── -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SEO FONDAMENTAL — titre & description stratégiques
+         Titre : ~60 car. | Description : ~155 car.
+         Cible : élèves, parents, enseignants, ULIS/DYS, modérateurs
+    ══════════════════════════════════════════════════════════════════════ -->
+    <title>Apprenix — Aide scolaire IA, Flashcards & Révision gratuits</title>
+    <meta name="description" content="Aide IA, flashcards et révision gratuits du CP au Bac+5. Zéro pub, zéro abonnement. Pour tous les élèves, y compris DYS et ULIS." />
+    <meta name="keywords" content="plateforme éducative gratuite, aide aux devoirs gratuite, aide devoirs IA, flashcards, fiches révision, révision bac 2026, brevet 2026, lycée collège université, intelligence artificielle scolaire, Apprenix, apprendre gratuitement, cours gratuits, organisation scolaire, DYS inclusion, outils enseignants, sécurité enfants internet, RGPD école" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="slurp" content="index, follow" />
+    <meta name="yandex" content="index, follow" />
+    <meta name="teoma" content="index, follow" />
+    <meta name="author" content="Charly Soudan — Apprenix" />
+    <meta name="language" content="fr" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+
+    <!-- ── SEO Local France — geo.* (Bing, Yandex, DuckDuckGo) ── -->
+    <meta name="geo.region"       content="FR-93" />
+    <meta name="geo.placename"    content="Tremblay-en-France, Île-de-France, France" />
+    <meta name="geo.position"     content="48.9751;2.5627" />
+    <meta name="ICBM"             content="48.9751, 2.5627" />
+    <meta name="DC.title"         content="Apprenix — Aide scolaire IA, Flashcards & Révision gratuits" />
+    <meta name="DC.creator"       content="Charly Soudan" />
+    <meta name="DC.language"      content="fr" />
+
+    <!-- ── Google News / Actualités ── -->
+    <meta name="news_keywords" content="éducation, aide aux devoirs, intelligence artificielle, bac 2026, brevet 2026, révision, flashcards, Parcoursup, orientation scolaire, DYS" />
+
+    <!-- ── Thème couleur Apprenix — orange #FF6B0A ── -->
+    <meta name="theme-color" content="#FF6B0A" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1E2E" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- ── Favicon SVG — navigateurs modernes (Chrome 80+, Firefox 84+, Edge 80+, Safari 16+) ── -->
+    <!-- SVG : vectoriel, s'adapte à toutes résolutions (y.c. Retina 3x), thème clair/sombre -->
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <!-- Favicon PNG — fallback navigateurs anciens (IE 11, Safari < 16, Opera Mini) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png?v=9" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png?v=9" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- ── Preconnect / DNS-prefetch — réduction latence requêtes critiques ──────
+         preconnect   : TCP + TLS handshake effectués avant le 1er fetch → −150–300 ms
+         dns-prefetch : résolution DNS seule (navigateurs < Chrome 76 / Safari < 12.1) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <!-- Supabase — auth, base de données, edge functions -->
+    <link rel="dns-prefetch" href="https://djrdhfhiqcyasiajgzcp.supabase.co" />
+
+    <!-- ── Preload polices critiques — Lighthouse font-display (FCP/LCP) ─────────
+         Plus Jakarta Sans poids 700 (titres) préchargé pour éviter FOIT/FOUT
+         crossorigin requis pour les fonts servies depuis un CDN tiers             -->
+    <link rel="preload" as="font" type="font/woff2"
+          href="https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KU7NShXUEKi4Rw.woff2"
+          crossorigin="anonymous" />
+
+    <!-- ── Preload LCP — og-image préchargé pour Core Web Vitals (LCP < 2.5s) ── -->
+    <link rel="preload" as="image" href="/og-image.png" fetchpriority="high" />
+
+    <!-- ── Canonical & hreflang ── -->
+    <!-- Domaine canonique : apprenix.org (www redirige → non-www via vercel.json) -->
+    <link rel="canonical" href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="fr"       href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="fr-FR"    href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="fr-BE"    href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="fr-CH"    href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="fr-CA"    href="https://apprenix.org/" />
+    <link rel="alternate" hreflang="x-default" href="https://apprenix.org/" />
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         OPEN GRAPH — aperçu Facebook · LinkedIn · WhatsApp · Discord · iMessage
+         Image : og-image.png 1200×630 — logo Apprenix orange + slogan motivant
+    ══════════════════════════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Apprenix" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="fr_BE" />
+    <meta property="og:locale:alternate" content="fr_CH" />
+    <meta property="og:locale:alternate" content="fr_CA" />
+    <meta property="og:title" content="Apprenix — La plateforme scolaire gratuite qui change tout" />
+    <meta property="og:description" content="Aide IA, flashcards et révision gratuits du CP au Bac+5. Zéro pub, zéro abonnement. Pour tous les élèves, y compris DYS et ULIS." />
+    <meta property="og:url" content="https://apprenix.org/" />
+    <meta property="og:image" content="https://apprenix.org/og-image.png" />
+    <meta property="og:image:secure_url" content="https://apprenix.org/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Apprenix — Comprendre, réviser et progresser. Aide IA, flashcards, révision 100% gratuits du CP à la fac." />
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         TWITTER / X CARD — summary_large_image (1200×630)
+    ══════════════════════════════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@apprenix" />
+    <meta name="twitter:creator" content="@apprenix" />
+    <meta name="twitter:title" content="Apprenix — Aide aux devoirs IA gratuite, du CP à la fac" />
+    <meta name="twitter:description" content="Aide IA, flashcards, fiches de révision, organisation scolaire. Gratuit, sans pub, accessible à tous — y compris DYS et ULIS." />
+    <meta name="twitter:image" content="https://apprenix.org/og-image.png" />
+    <meta name="twitter:image:alt" content="Apprenix — La plateforme scolaire 100% gratuite" />
+    <meta name="twitter:label1" content="Gratuit à vie" />
+    <meta name="twitter:data1" content="100% gratuit · Zéro pub · Zéro abonnement" />
+    <meta name="twitter:label2" content="Niveaux couverts" />
+    <meta name="twitter:data2" content="CP → Bac+5 · DYS · ULIS · SEGPA" />
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         PROTECTION ANTI-SCRAPING IA (TDMREP)
+    ══════════════════════════════════════════════════════════════════════ -->
+    <meta name="CCBot" content="noindex" />
+    <meta name="GPTBot" content="noindex" />
+    <meta name="ChatGPT-User" content="noindex" />
+    <meta name="Google-Extended" content="noindex" />
+    <meta name="Anthropic-AI" content="noindex" />
+    <meta name="ClaudeBot" content="noindex" />
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         APPLE iOS / iPadOS / macOS SAFARI
+    ══════════════════════════════════════════════════════════════════════ -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Apprenix" />
+    <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=9" />
+    <link rel="apple-touch-icon" sizes="57x57"   href="/icons/apple-icon-57x57.png?v=9" />
+    <link rel="apple-touch-icon" sizes="60x60"   href="/icons/apple-icon-60x60.png?v=9" />
+    <link rel="apple-touch-icon" sizes="72x72"   href="/icons/apple-icon-72x72.png?v=9" />
+    <link rel="apple-touch-icon" sizes="76x76"   href="/icons/apple-icon-76x76.png?v=9" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png?v=9" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png?v=9" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png?v=9" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png?v=9" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png?v=9" />
+    <link rel="mask-icon" href="/apprenix-mask.svg?v=9" color="#FF6B0A" />
+
+    <!-- ── Apple iOS / iPadOS — Splash Screens (Startup Images) ─────────────
+         Requis pour une expérience PWA native sur Safari iOS/iPadOS.
+         Chaque media query cible un modèle précis via device-width + ratio.
+         iPhone SE 1ère gen (320×568@2x) → iPhone 16 Pro Max (430×932@3x)
+         iPad mini / Air / Pro (768px → 1366px)
+    ─────────────────────────────────────────────────────────────────────── -->
+    <!-- iPhone SE (1st gen) 320×568 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 6/7/8 375×667 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 6+/7+/8+ 414×736 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone X / XS / 11 Pro 375×812 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone XR / 11 414×896 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone XS Max / 11 Pro Max 414×896 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 12 / 13 / 14 390×844 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 12 Pro Max / 13 Pro Max / 14 Plus 428×926 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 14 Pro / 15 / 15 Pro 393×852 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 14 Pro Max / 15 Plus / 15 Pro Max / 16 / 16 Pro 430×932 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 16 Pro 402×874 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPhone 16 Pro Max 440×956 @3x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"  href="/icons/icon-512x512.png?v=9" />
+    <!-- iPad mini / Air / 9.7" 768×1024 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/icons/icon-512x512.png?v=9" />
+    <!-- iPad Pro 10.5" 834×1112 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/icons/icon-512x512.png?v=9" />
+    <!-- iPad Pro 11" 834×1194 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/icons/icon-512x512.png?v=9" />
+    <!-- iPad Pro 12.9" 1024×1366 @2x -->
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/icons/icon-512x512.png?v=9" />
+
+    <!-- ── Google / Android Chrome ── -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- ── Microsoft Windows — Edge, IE11, Live Tiles, Cortana ── -->
+    <meta name="msapplication-TileColor" content="#FF6B0A" />
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png?v=9" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-navbutton-color" content="#FF6B0A" />
+    <meta name="msapplication-starturl" content="/" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="msapplication-tooltip" content="Apprenix — Aide scolaire gratuite" />
+    <meta name="msapplication-window" content="width=1024;height=768" />
+    <meta name="application-name" content="Apprenix" />
+
+    <!-- ── Opera (GX, Mobile, Mini) ──────────────────────────────────────────
+         Opera GX/Mobile = Chromium → respecte theme-color ✅ et manifest ✅
+         Opera Mini (économiseur bande passante) ne charge pas JS → le SEO
+         côté serveur (meta, OG, JSON-LD) reste la seule surface indexable.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="applicable-device" content="pc,mobile" />
+
+    <!-- ── Xiaomi MIUI Browser (Mi Browser) ─────────────────────────────────
+         Utilisé sur tous les appareils Redmi / POCO / Xiaomi 12/13/14 série.
+         full-screen : active l'immersion plein écran dans MIUI.
+         browsermode : "application" → désactive la barre d'URL lors du scroll.
+         nightmode   : suit le mode sombre système.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <meta name="nightmode" content="enable" />
+
+    <!-- ── Tencent X5 Engine (WeChat, QQ, QQ Browser) ───────────────────────
+         Moteur X5 utilisé dans WeChat (1,3 Md users), QQ et QQ Browser.
+         x5-fullscreen : activation plein écran.
+         x5-page-mode  : "app" → empêche le re-rendu par l'engine.
+         x5-orientation: les deux orientations acceptées.
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── UC Browser ────────────────────────────────────────────────────────
+         2e navigateur mobile en Inde, utilisé en Afrique francophone.
+         nightmode & fitscreen fonctionnent comme sur Mi Browser.
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── Samsung Internet ──────────────────────────────────────────────────
+         Samsung Internet utilise Blink (Chromium) — respecte theme-color ✅
+         et manifest.json ✅. La balise ci-dessous active les favoris rapides.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <meta name="msapplication-starturl" content="/" />
+
+    <!-- ── Firefox (bureau + Android + iOS) ──────────────────────────────────
+         Firefox supporte les favicons SVG depuis FF 41+.
+         Aucune balise propriétaire requise — manifest.json + theme-color ✅
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── Yandex (Russie, utilisé aussi en Belgique/Suisse) ─────────────────
+         Moteur Yandex indexe les pages francophones hors France.
+         yandex-verification à activer après déclaration dans Yandex Webmaster.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <!-- <meta name="yandex-verification" content="VOTRE_CODE_ICI" /> -->
+
+    <!-- ── Baidu (pour les visiteurs depuis la Chine) ────────────────────────
+         baidu-trans=no : empêche la traduction automatique non sollicitée.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <meta name="baidu-trans" content="no" />
+
+    <!-- ── DuckDuckGo · Ecosia · Qwant · Brave ───────────────────────────────
+         Ces moteurs respectent la spec robots standard + Open Graph.
+         Aucune balise propriétaire — couverture assurée via robots ✅ + og: ✅
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── Favicon — toutes tailles, cache-bust v=9 ──────────────────────────
+         Ordre de priorité optimal (navigateurs modernes) :
+         1. SVG en premier  → Chrome 80+, Firefox 41+, Edge 79+, Safari 17+
+            (vectoriel, parfait à toutes les résolutions, mode sombre natif)
+         2. PNG 32×32       → fallback haute qualité Chrome/Edge anciens
+         3. PNG 16×16       → fallback basse résolution
+         4. ICO             → IE11, très anciens navigateurs uniquement
+         Les navigateurs choisissent le PREMIER format qu'ils supportent.
+    ── -->
+    <link rel="icon" type="image/svg+xml"             href="/icons/icon.svg?v=9" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=9" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=9" />
+    <link rel="icon" type="image/png" sizes="96x96"   href="/icons/icon-96x96.png?v=9" />
+    <link rel="icon" type="image/png" sizes="32x32"   href="/icons/icon-32x32.png?v=9" />
+    <link rel="icon" type="image/png" sizes="16x16"   href="/icons/icon-16x16.png?v=9" />
+    <link rel="shortcut icon"                         href="/favicon.ico?v=9" />
+    <link rel="icon" type="image/x-icon"              href="/favicon.ico?v=9" />
+
+    <!-- ── PWA + Sitemap ── -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ── Préconnexion Supabase (API, Auth, Storage) → −300 ms sur le premier appel ── -->
+    <link rel="preconnect" href="https://iomibxcwacyutzytqaoz.supabase.co" crossorigin="anonymous" />
+    <link rel="dns-prefetch" href="https://iomibxcwacyutzytqaoz.supabase.co" />
+
+    <!-- ── DNS-prefetch API Ministère Éducation nationale (EtablissementsPage) ── -->
+    <link rel="dns-prefetch" href="https://data.education.gouv.fr" />
+
+    <!-- ── Preload ressources critiques (LCP, FCP) ───────────────────────────
+         Charge l'icône maskable et og-image en priorité haute pour réduire
+         le LCP (Largest Contentful Paint) — impact direct Core Web Vitals.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <link rel="preload" as="image" href="/icons/icon-192x192.png?v=9" />
+    <link rel="preload" as="image" href="/og-image.png" type="image/png" />
+
+    <!-- ── Audience & géo France ── -->
+    <meta name="geo.region" content="FR" />
+    <meta name="geo.placename" content="France" />
+    <meta name="audience" content="Élèves, Étudiants, Enseignants, Parents, Personnes en situation de handicap" />
+    <meta name="subject" content="Éducation, Apprentissage, Révision scolaire, Inclusion numérique" />
+    <meta name="abstract" content="Plateforme éducative française 100% gratuite. Aide aux devoirs IA, flashcards, révision, organisation. Du CP à l'université. Accessible aux élèves DYS et ULIS." />
+    <meta name="category" content="education" />
+    <meta name="classification" content="Education, EdTech, Inclusion" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="expires" content="never" />
+    <meta name="copyright" content="© Apprenix 2026 — Tous droits réservés" />
+
+    <!-- ── Dublin Core (bibliothèques, ENT, institutions) ── -->
+    <meta name="DC.title" content="Apprenix — Plateforme éducative gratuite" />
+    <meta name="DC.creator" content="Charly Soudan" />
+    <meta name="DC.publisher" content="Apprenix" />
+    <meta name="DC.rights" content="Copyright © Apprenix 2026" />
+    <meta name="DC.language" content="fr" />
+    <meta name="DC.type" content="InteractiveResource" />
+    <meta name="DC.audience" content="Élèves, Étudiants, Enseignants, Parents, ULIS, DYS" />
+
+    <!-- ── Google Search Console (à activer après vérification) ── -->
+    <!-- <meta name="google-site-verification" content="VOTRE_CODE_ICI" /> -->
+    <!-- <meta name="msvalidate.01" content="VOTRE_CODE_ICI" /> -->
+    <!-- ══════════════════════════════════════════════════════════════════════
+         JSON-LD STRUCTURÉ — 6 schémas optimisés pour Rich Results Google
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- WebSite + SearchAction → sitelinks Google + barre de recherche -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Apprenix",
+      "alternateName": ["Apprenix — Aide scolaire gratuite", "Apprenix — Plateforme éducative"],
+      "url": "https://apprenix.org",
+      "description": "Plateforme éducative 100% gratuite. Aide aux devoirs IA, flashcards, révision, organisation. Du CP à la fac. Sans pub, sans données revendues. Accessible à tous.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-06-22",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://apprenix.org/aide-ia?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Organization → logo Google Knowledge Panel + confiance -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Apprenix",
+      "legalName": "Apprenix",
+      "url": "https://apprenix.org",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://apprenix.org/apprenix-logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Logo Apprenix — mortier académique et éclair IA, orange #FF6B0A"
+      },
+      "image": "https://apprenix.org/og-image.png",
+      "description": "Apprenix est la plateforme éducative 100% gratuite conçue pour donner à chaque élève — peu importe son milieu, son niveau ou son handicap — les meilleurs outils scolaires du CP jusqu'à l'université.",
+      "foundingDate": "2024",
+      "slogan": "Comprendre, réviser et progresser — pour tous, gratuitement.",
+      "knowsAbout": ["Éducation", "Révision scolaire", "Intelligence artificielle pédagogique", "Inclusion scolaire", "Bac", "Brevet", "Parcoursup"],
+      "sameAs": ["https://twitter.com/apprenix"],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "apprenix.contact@gmail.com",
+        "availableLanguage": "French",
+        "contactOption": "TollFree"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tremblay-en-France",
+        "postalCode": "93290",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["France", "Belgique", "Suisse", "Canada"]
+    }
+    </script>
+
+    <!-- EducationalOrganization → apparition dans Google for Education -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Apprenix",
+      "url": "https://apprenix.org",
+      "description": "Plateforme d'apprentissage en ligne 100% gratuite pour les élèves du CP à l'université, y compris les élèves en situation de handicap (DYS, ULIS, SEGPA). Outils conformes Éduscol et RGPD.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Outils éducatifs gratuits Apprenix",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Aide aux devoirs IA", "description": "Assistant IA pour toutes les matières, du CP à Bac+5", "courseMode": "online", "isAccessibleForFree": true}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Flashcards — Répétition espacée", "description": "Mémorisation scientifique par répétition espacée", "courseMode": "online", "isAccessibleForFree": true}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Ressources pédagogiques", "description": "Fiches de révision, résumés, annales pour tous niveaux", "courseMode": "online", "isAccessibleForFree": true}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Scanner IA", "description": "Photo d'un exercice → analyse et explication IA instantanées", "courseMode": "online", "isAccessibleForFree": true}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Outils linguistiques", "description": "Conjugueur, correcteur, dictionnaire, traducteur", "courseMode": "online", "isAccessibleForFree": true}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Maths et Sciences", "description": "Calculatrice scientifique, formules, tableau périodique", "courseMode": "online", "isAccessibleForFree": true}}
+        ]
+      },
+      "accessibilityFeature": ["highContrast", "largePrint", "readingOrder", "structuralNavigation", "alternativeText"],
+      "accessibilityHazard": "none",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": ["student", "teacher", "parent"],
+        "audienceType": "Élèves du CP à Bac+5, Enseignants, Parents, Élèves DYS et en situation de handicap"
+      }
+    }
+    </script>
+
+    <!-- SoftwareApplication → Rich Result "Appli web gratuite" sur Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Apprenix",
+      "applicationCategory": "EducationApplication",
+      "applicationSubCategory": "Study Tool",
+      "operatingSystem": "Web (iOS, Android, Windows, macOS, Linux)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "description": "100% gratuit, sans abonnement, sans publicité, à vie"
+      },
+      "url": "https://apprenix.org",
+      "description": "Plateforme web éducative gratuite : aide IA, flashcards, révision, organisation scolaire. Compatible tous appareils. Installable en PWA.",
+      "inLanguage": "fr-FR",
+      "featureList": [
+        "Aide aux devoirs par IA — toutes matières, tous niveaux",
+        "Flashcards avec répétition espacée scientifique",
+        "Fiches de révision générées par IA",
+        "Scanner d'exercices — photo → analyse IA",
+        "Agenda et to-do list scolaires",
+        "Calculatrice scientifique et tableau périodique",
+        "Mode Deep Work Pomodoro",
+        "Outils d'accessibilité DYS et ULIS",
+        "Conformité RGPD totale — données en Europe"
+      ],
+      "screenshot": "https://apprenix.org/og-image.png"
+    }
+    </script>
+
+    <!-- Person — Fondateur Charly Soudan → E-E-A-T Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Charly Soudan",
+      "jobTitle": "Fondateur & Développeur d'Apprenix",
+      "description": "Charly Soudan, 24 ans, né aux Philippines, arrivé en France à 8 ans. Il a créé Apprenix pour que chaque élève, peu importe son quartier ou ses moyens, ait accès aux meilleurs outils éducatifs.",
+      "nationality": {"@type": "Country", "name": "France"},
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tremblay-en-France",
+        "postalCode": "93290",
+        "addressCountry": "FR"
+      },
+      "email": "apprenix.contact@gmail.com",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Apprenix",
+        "url": "https://apprenix.org"
+      },
+      "sameAs": ["https://apprenix.org/mission"]
+    }
+    </script>
+
+    <!-- FAQPage → Position zéro Google (featured snippet) — 8 vraies questions -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apprenix est-il vraiment gratuit ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui, Apprenix est 100% gratuit, pour toujours. Aucune publicité, aucun abonnement, aucune inscription obligatoire. Tous les outils — aide IA, flashcards, fiches de révision, organisation — sont accessibles librement du CP jusqu'à l'université."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix est-il adapté aux élèves DYS, ULIS et en situation de handicap ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Apprenix intègre des outils d'accessibilité spécifiques : mode contraste élevé, texte agrandi, navigation clavier, synthèse vocale. Une page dédiée /inclusion liste les logiciels adaptés, droits MDPH, PPS, PAP et PPRE."}
+        },
+        {
+          "@type": "Question",
+          "name": "Les enseignants peuvent-ils utiliser Apprenix en classe ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui, Apprenix est fait pour les enseignants. La page /enseignants propose des ressources conformes Éduscol, un kit de conformité légale RGPD téléchargeable, des fiches intégrables en cours et un espace IA pédagogique. 100% gratuit, sans pub."}
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce sécurisé pour les enfants ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Apprenix est 100% sécurisé : aucune publicité, aucune donnée revendue, HTTPS, hébergement en Union Européenne, conformité RGPD stricte et protection des mineurs. La page /securite et /transparence détaillent toutes les mesures techniques et légales."}
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il créer un compte pour utiliser Apprenix ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Non. La grande majorité des outils d'Apprenix est accessible sans compte. Un compte optionnel permet de sauvegarder flashcards, agenda, notes et progression — mais rien n'est obligatoire."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix fonctionne-t-il sur téléphone, tablette et ordinateur ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui, Apprenix est entièrement responsive. Il fonctionne sur iPhone, iPad, Android, Windows, macOS et Linux. Il s'installe aussi comme une application sur l'écran d'accueil (PWA)."}
+        },
+        {
+          "@type": "Question",
+          "name": "Quels niveaux scolaires sont couverts ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Tous : CP, CE1, CE2, CM1, CM2 (primaire), 6e à 3e (collège), Seconde, Première, Terminale (lycée), Bac+1 à Bac+5 (université). L'IA et les ressources s'adaptent automatiquement au niveau sélectionné."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix respecte-t-il le RGPD ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui, Apprenix est 100% conforme RGPD et LCEN. Aucune donnée personnelle n'est revendue. Les données sont hébergées en Union Européenne. Un rapport de transparence complet est disponible sur /transparence."}
+        },
+        {
+          "@type": "Question",
+          "name": "Comment un parent peut-il suivre la progression de son enfant sur Apprenix ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "La page /parents-espace permet aux parents de consulter en temps réel la progression scolaire de leur enfant : XP gagné, séries de révision (streak), flashcards maîtrisées, tâches complétées et prochaines échéances. Aucun abonnement, aucune pub, 100% gratuit."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix peut-il aider mon enfant à préparer le brevet ou le baccalauréat ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Apprenix propose un mode examen spécial Brevet et Bac : minuterie officielle, checklist de révision, stratégies anti-stress, fiches méthode par matière et quiz de préparation. Tout est gratuit, sans inscription, disponible 24h/24."}
+        },
+        {
+          "@type": "Question",
+          "name": "Comment les enseignants peuvent-ils intégrer Apprenix dans leur cours ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Les enseignants peuvent partager directement les pages d'outils (flashcards, quiz, carte mentale, aide IA) avec leurs élèves via un lien. La page /enseignants propose également des ressources conformes Éduscol, des fiches pédagogiques intégrables et un kit RGPD téléchargeable pour les établissements scolaires."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix propose-t-il de l'aide pour les devoirs en mathématiques et sciences ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Apprenix intègre une calculatrice scientifique gratuite, un afficheur de formules mathématiques (LaTeX), des outils de géométrie et des ressources vérifiées pour les sciences physiques, la chimie, la SVT et les mathématiques — du collège jusqu'en classe préparatoire."}
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce qu'Apprenix fonctionne sans connexion internet ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui, partiellement. Apprenix est une PWA (Progressive Web App) : une fois installé sur votre appareil, les outils principaux (flashcards, notes, organisation) fonctionnent hors ligne. Les fonctionnalités IA et la synchronisation nécessitent une connexion internet."}
+        },
+        {
+          "@type": "Question",
+          "name": "Apprenix est-il utilisable dans les établissements scolaires et universités ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Apprenix est conforme aux exigences des établissements : RGPD, hébergement UE, aucune pub, aucune donnée revendue, accessibilité RGAA. La page /etablissements liste les 68 936 collèges, lycées et écoles de France avec leurs coordonnées officielles."}
+        },
+        {
+          "@type": "Question",
+          "name": "Comment créer des flashcards efficaces avec Apprenix ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Sur la page /flashcards, créez vos propres decks de cartes question/réponse ou importez-en depuis des ressources. Apprenix utilise la répétition espacée (algorithme SM-2) pour optimiser la mémorisation à long terme : les cartes difficiles reviennent plus souvent, les cartes maîtrisées moins fréquemment."}
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je utiliser Apprenix pour apprendre des langues étrangères ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. La page /linguistique propose un conjugueur multilingue, un correcteur orthographique, un traducteur et des outils d'analyse grammaticale pour le français, l'anglais, l'espagnol, l'allemand et d'autres langues. Idéal pour préparer le bac de langues vivantes."}
+        }
+      ]
+    }
+    </script>
+
+    <!-- ── EducationalOrganization → Rich Result établissement éducatif ────────
+         Déclenche la fiche Knowledge Panel de Google pour Apprenix.
+         Champs E-E-A-T : name, url, logo, description, sameAs réseaux sociaux.
+    ──────────────────────────────────────────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "EducationalOrganization"],
+      "@id": "https://apprenix.org/#organization",
+      "name": "Apprenix",
+      "alternateName": ["Apprenix plateforme", "Apprenix éducation"],
+      "url": "https://apprenix.org",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://apprenix.org/apprenix-logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://apprenix.org/og-image.png",
+      "description": "Plateforme éducative 100% gratuite et sans publicité pour les élèves du CP au Bac+5. Aide aux devoirs IA, flashcards, fiches de révision, organisation scolaire — accessible à tous, y compris DYS, ULIS et SEGPA.",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Charly Soudan",
+        "jobTitle": "Fondateur",
+        "nationality": {"@type": "Country", "name": "France"}
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tremblay-en-France",
+        "addressRegion": "Île-de-France",
+        "postalCode": "93290",
+        "addressCountry": "FR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "apprenix.contact@gmail.com",
+        "availableLanguage": "French",
+        "areaServed": ["FR", "BE", "CH", "CA"]
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "France"},
+        {"@type": "Country", "name": "Belgique"},
+        {"@type": "Country", "name": "Suisse"},
+        {"@type": "Country", "name": "Canada"}
+      ],
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": ["student", "parent", "teacher"],
+        "audienceType": "Élèves du CP au Bac+5, parents, enseignants"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Outils éducatifs gratuits",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aide aux devoirs IA", "url": "https://apprenix.org/aide-ia"}, "price": "0", "priceCurrency": "EUR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flashcards répétition espacée", "url": "https://apprenix.org/flashcards"}, "price": "0", "priceCurrency": "EUR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ressources pédagogiques", "url": "https://apprenix.org/ressources"}, "price": "0", "priceCurrency": "EUR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Scanner IA", "url": "https://apprenix.org/scanner"}, "price": "0", "priceCurrency": "EUR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Organisation scolaire", "url": "https://apprenix.org/organisation"}, "price": "0", "priceCurrency": "EUR"}
+        ]
+      },
+      "sameAs": [
+        "https://twitter.com/apprenix",
+        "https://www.tiktok.com/@apprenix",
+        "https://www.instagram.com/apprenix",
+        "https://www.facebook.com/apprenix",
+        "https://www.linkedin.com/company/apprenix",
+        "https://www.youtube.com/@apprenix",
+        "https://mastodon.social/@apprenix"
+      ]
+    }
+    </script>
+
+    <!-- ── WebSite + SiteLinksSearchBox → barre de recherche dans les SERPs ──
+         Permet à Google d'afficher une zone de recherche directe sous le nom
+         du site dans la page de résultats (Rich Result "Sitelinks Search Box").
+         Requis : SearchAction.target doit pointer vers une vraie page de résultats.
+    ──────────────────────────────────────────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://apprenix.org/#website",
+      "name": "Apprenix",
+      "url": "https://apprenix.org",
+      "inLanguage": "fr-FR",
+      "description": "Plateforme éducative 100% gratuite — aide IA, flashcards, révision du CP au Bac+5",
+      "publisher": {"@id": "https://apprenix.org/#organization"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://apprenix.org/aide-ia?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- ItemList → Rich Result liste des outils dans les SERPs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Outils éducatifs gratuits Apprenix",
+      "description": "Liste complète des outils pédagogiques 100% gratuits disponibles sur Apprenix",
+      "url": "https://apprenix.org",
+      "numberOfItems": 12,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Aide aux devoirs IA", "description": "Assistant IA instantané — toutes matières, tous niveaux, mode socratique", "url": "https://apprenix.org/aide-ia"},
+        {"@type": "ListItem", "position": 2, "name": "Flashcards — Répétition espacée", "description": "Mémorisation 2× plus rapide par algorithme scientifique", "url": "https://apprenix.org/flashcards"},
+        {"@type": "ListItem", "position": 3, "name": "Ressources pédagogiques", "description": "Fiches de révision, résumés de cours, annales pour tous niveaux", "url": "https://apprenix.org/ressources"},
+        {"@type": "ListItem", "position": 4, "name": "Scanner IA", "description": "Photo d'un exercice → analyse, correction et explication instantanées", "url": "https://apprenix.org/scanner"},
+        {"@type": "ListItem", "position": 5, "name": "Organisation scolaire", "description": "Agenda, to-do list, Pomodoro — pour être enfin organisé", "url": "https://apprenix.org/organisation"},
+        {"@type": "ListItem", "position": 6, "name": "Outils linguistiques", "description": "Conjugueur, correcteur, dictionnaire, aide dissertation, traducteur", "url": "https://apprenix.org/linguistique"},
+        {"@type": "ListItem", "position": 7, "name": "Maths et Sciences", "description": "Calculatrice scientifique, formules, tableau périodique interactif", "url": "https://apprenix.org/maths-sciences"},
+        {"@type": "ListItem", "position": 8, "name": "Mode Deep Work", "description": "Concentration maximale : minuteur 25–90 min + ambiance sonore", "url": "https://apprenix.org/focus"},
+        {"@type": "ListItem", "position": 9, "name": "Notes de cours", "description": "Wiki personnel : prise de notes rapide, classement, export", "url": "https://apprenix.org/notes"},
+        {"@type": "ListItem", "position": 10, "name": "Motivation & Progression", "description": "XP, badges, streaks, défis — pour rester motivé chaque jour", "url": "https://apprenix.org/motivation"},
+        {"@type": "ListItem", "position": 11, "name": "Inclusion scolaire", "description": "Outils DYS, droits MDPH, logiciels adaptés ULIS et SEGPA", "url": "https://apprenix.org/inclusion"},
+        {"@type": "ListItem", "position": 12, "name": "Espace enseignants", "description": "Ressources conformes Éduscol, kit RGPD, IA pédagogique en classe", "url": "https://apprenix.org/enseignants"}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         NOSCRIPT — contenu intégral pour Googlebot sans JS + navigateurs anciens
+         Google indexe le contenu <noscript> avec la même priorité que le HTML normal.
+         Ce bloc garantit l'indexation même si le rendu JS est retardé.
+    ══════════════════════════════════════════════════════════════════════ -->
+    <noscript>
+      <div style="font-family:sans-serif;max-width:900px;margin:0 auto;padding:24px;color:#111;">
+
+        <header>
+          <h1>Apprenix — Plateforme éducative 100&nbsp;% gratuite du CP au Bac+5</h1>
+          <p><strong>Aide IA, flashcards, fiches de révision, organisation scolaire — zéro pub, zéro abonnement, pour tous les élèves de France.</strong></p>
+          <p>Apprenix est une plateforme éducative entièrement gratuite, sans publicité et sans abonnement, conçue pour aider chaque élève — du CP à l'université — à comprendre, réviser et progresser. Créée en France par Charly Soudan, Apprenix met l'intelligence artificielle au service de l'éducation, dans le respect du RGPD et de la vie privée des élèves.</p>
+        </header>
+
+        <nav aria-label="Navigation principale Apprenix">
+          <ul>
+            <li><a href="/aide-ia">Aide aux devoirs IA — Toutes matières, tous niveaux</a></li>
+            <li><a href="/flashcards">Flashcards — Répétition espacée gratuite</a></li>
+            <li><a href="/ressources">Ressources pédagogiques — Fiches révision, annales</a></li>
+            <li><a href="/scanner">Scanner IA — Photo d'un exercice → explication instantanée</a></li>
+            <li><a href="/organisation">Organisation scolaire — Agenda, to-do, Pomodoro</a></li>
+            <li><a href="/linguistique">Outils linguistiques — Conjugueur, correcteur, traducteur</a></li>
+            <li><a href="/maths-sciences">Maths &amp; Sciences — Calculatrice, formules, tableau périodique</a></li>
+            <li><a href="/focus">Mode Deep Work — Concentration maximale</a></li>
+            <li><a href="/notes">Notes de cours — Wiki personnel</a></li>
+            <li><a href="/motivation">Motivation &amp; Progrès — XP, badges, défis</a></li>
+            <li><a href="/inclusion">Inclusion DYS &amp; ULIS — Outils adaptés</a></li>
+            <li><a href="/enseignants">Espace enseignants — Ressources conformes Éduscol</a></li>
+            <li><a href="/parents">Espace parents — Suivi de progression</a></li>
+            <li><a href="/bac-francais">Révision Bac Français 2026</a></li>
+            <li><a href="/brevet-maths">Révision Brevet Maths 2026</a></li>
+            <li><a href="/revision-bac-2026">Révision Bac 2026 — Toutes matières</a></li>
+            <li><a href="/aide-devoirs-gratuit">Aide aux devoirs gratuite</a></li>
+            <li><a href="/flashcards-gratuit">Flashcards gratuites en ligne</a></li>
+            <li><a href="/bac-philo">Bac Philo 2026 — Fiches et méthode</a></li>
+            <li><a href="/cours-maths-gratuit">Cours de maths gratuits — Du collège au bac</a></li>
+            <li><a href="/methode-de-travail">Méthode de travail efficace — Lycée &amp; Université</a></li>
+            <li><a href="/faq">Centre d'aide &amp; FAQ</a></li>
+            <li><a href="/mission">Notre mission</a></li>
+          </ul>
+        </nav>
+
+        <main>
+          <section>
+            <h2>Qu'est-ce qu'Apprenix ?</h2>
+            <p>Apprenix est une plateforme scolaire gratuite qui propose des outils pédagogiques innovants pour les élèves du primaire au supérieur. Contrairement aux autres plateformes payantes comme Kartable, MaClasse, Scoleo ou Studyrama, Apprenix est entièrement gratuit pour toujours. Aucun abonnement, aucune publicité, aucune donnée revendue. C'est la seule plateforme éducative française à proposer autant d'outils IA gratuitement, du CP jusqu'à Bac+5.</p>
+            <p>Apprenix a été créé par Charly Soudan, arrivé en France à l'âge de 8 ans des Philippines, avec la conviction que chaque enfant, peu importe son quartier, ses moyens ou sa situation de handicap, mérite les meilleurs outils pour réussir. La plateforme est particulièrement adaptée aux élèves en zone prioritaire (REP, REP+), aux élèves DYS (dyslexie, dysorthographie, dyscalculie), aux élèves ULIS, SEGPA et aux enfants allophones.</p>
+          </section>
+
+          <section>
+            <h2>Aide aux devoirs IA — Toutes matières, du CP à Bac+5</h2>
+            <p>L'outil phare d'Apprenix est son <a href="/aide-ia">assistant IA d'aide aux devoirs</a>, disponible 24h/24 et 7j/7. Contrairement à ChatGPT ou à d'autres outils génériques, l'IA d'Apprenix est spécialisée dans le programme scolaire français et adapte automatiquement le niveau de ses explications à l'élève. Elle couvre toutes les matières : mathématiques, français, histoire-géographie, anglais, espagnol, allemand, physique-chimie, SVT, philosophie, économie-gestion, NSI et informatique.</p>
+            <p>L'IA d'Apprenix propose un <strong>mode socratique</strong> unique : au lieu de donner directement la réponse, elle guide l'élève par des questions pour qu'il développe son propre raisonnement. C'est la méthode recommandée par les neurosciences pour un apprentissage durable. L'IA génère aussi des fiches de révision personnalisées, des résumés de cours, des plans de dissertation et des explications visuelles.</p>
+          </section>
+
+          <section>
+            <h2>Flashcards — Mémorisation par répétition espacée</h2>
+            <p>Les <a href="/flashcards">flashcards d'Apprenix</a> utilisent l'algorithme SM-2 de répétition espacée, le même système que la célèbre application Anki — mais entièrement gratuit et sans installation. La répétition espacée est la méthode de mémorisation la plus efficace validée par les neurosciences : elle permet de mémoriser jusqu'à 2 fois plus vite et d'oublier 5 fois moins. Idéal pour préparer le Brevet, le Baccalauréat, des examens universitaires ou apprendre des langues vivantes.</p>
+            <p>Avec Apprenix, les élèves peuvent créer leurs propres decks de flashcards par matière et par chapitre, importer des cartes depuis leurs cours, ou laisser l'IA générer automatiquement des flashcards à partir d'un texte ou d'une photo de cours. Les flashcards sont synchronisées sur tous les appareils et fonctionnent même hors ligne.</p>
+          </section>
+
+          <section>
+            <h2>Ressources pédagogiques gratuites — Fiches, annales, méthodes</h2>
+            <p>La bibliothèque de <a href="/ressources">ressources pédagogiques d'Apprenix</a> propose des centaines de fiches de révision, résumés de cours, annales corrigées et fiches méthode pour tous les niveaux du programme scolaire français. Les ressources couvrent toutes les matières et sont conformes aux programmes officiels Éduscol du Ministère de l'Éducation nationale. Elles sont régulièrement mises à jour pour suivre les réformes du baccalauréat et du brevet.</p>
+          </section>
+
+          <section>
+            <h2>Scanner IA — Photo d'exercice, explication instantanée</h2>
+            <p>Le <a href="/scanner">scanner IA d'Apprenix</a> permet aux élèves de prendre une photo d'un exercice, d'une équation ou d'un problème avec leur smartphone et d'obtenir une explication détaillée étape par étape en quelques secondes. Cette fonctionnalité utilise la reconnaissance optique de caractères (OCR) combinée à l'intelligence artificielle pour analyser le contenu et proposer une résolution complète. C'est l'alternative gratuite aux applications payantes comme Photomath ou Mathway, avec en plus la prise en charge de toutes les matières (pas seulement les maths).</p>
+          </section>
+
+          <section>
+            <h2>Organisation scolaire — Agenda, to-do list, Pomodoro</h2>
+            <p>L'<a href="/organisation">outil d'organisation scolaire d'Apprenix</a> propose un agenda intégré, une to-do list par matière et priorité, et un minuteur Pomodoro pour travailler en sessions focalisées. La méthode Pomodoro (25 minutes de travail intense + 5 minutes de pause) est recommandée par les psychologues pour améliorer la concentration et réduire la procrastination. Apprenix propose également un mode Deep Work de 90 minutes pour les lycéens et étudiants.</p>
+          </section>
+
+          <section>
+            <h2>Apprenix pour les élèves DYS, ULIS et en situation de handicap</h2>
+            <p>Apprenix est particulièrement adapté aux élèves en situation de handicap. La page <a href="/inclusion">Inclusion &amp; Accessibilité</a> propose des ressources spécifiques pour les élèves DYS (dyslexie, dysorthographie, dyscalculie, dyspraxie, dysphasie), ULIS, SEGPA et allophones. On y trouve la liste des logiciels recommandés par l'ANAE, les droits MDPH, les formulaires PPS, PAP et PPRE, ainsi que des fiches pratiques pour les familles. Apprenix est conforme RGAA niveau AA et respecte les standards d'accessibilité numérique.</p>
+          </section>
+
+          <section>
+            <h2>Apprenix pour les enseignants</h2>
+            <p>L'<a href="/enseignants">espace enseignants d'Apprenix</a> propose des ressources pédagogiques conformes aux programmes Éduscol, un kit de conformité légale RGPD téléchargeable pour les établissements scolaires, des outils de création de quiz et de flashcards utilisables en classe, et une IA pédagogique pour préparer les cours. Tout est gratuit, sans publicité, sans abonnement. Apprenix est adapté aux classes de collège, de lycée et aux BTS.</p>
+          </section>
+
+          <section>
+            <h2>Apprenix pour les parents</h2>
+            <p>L'<a href="/parents">espace parents d'Apprenix</a> permet aux parents de suivre la progression scolaire de leur enfant en temps réel : XP gagné, séries de révision (streak), flashcards maîtrisées, tâches complétées et prochaines échéances. Les parents peuvent aussi accéder aux ressources pédagogiques pour mieux accompagner leurs enfants dans leurs devoirs. Apprenix est sans publicité et sans risque de contenu inapproprié.</p>
+          </section>
+
+          <section>
+            <h2>Préparer le Bac 2026 avec Apprenix</h2>
+            <p>Apprenix propose un dispositif complet pour <a href="/revision-bac-2026">préparer le Baccalauréat 2026</a>. Les lycéens de Seconde, Première et Terminale peuvent accéder à des fiches de révision par spécialité, des annales corrigées, des fiches méthode pour les épreuves (dissertation, commentaire de texte, étude de document, oral du Grand Oral), et un planning de révision personnalisé. Apprenix couvre toutes les spécialités du Bac : Maths, Physique-Chimie, SVT, Histoire-Géographie, SES, NSI, HGGSP, Langues, Philosophie et plus encore.</p>
+          </section>
+
+          <section>
+            <h2>Préparer le Brevet 2026 avec Apprenix</h2>
+            <p>Pour les élèves de 3ème, Apprenix propose des révisions complètes pour le <a href="/brevet-maths">Brevet des collèges 2026</a>. Fiches de révision en Maths, Français, Histoire-Géographie-EMC, Physique-Chimie, SVT, Anglais et Espagnol. Des quiz interactifs, des annales corrigées et des conseils de méthode pour chaque épreuve.</p>
+          </section>
+
+          <section>
+            <h2>Sécurité et conformité RGPD</h2>
+            <p>Apprenix est 100&nbsp;% conforme au Règlement Général sur la Protection des Données (RGPD) et à la loi informatique et libertés. Aucune donnée personnelle des élèves n'est revendue à des tiers. Les données sont hébergées en Union Européenne. Apprenix ne contient aucune publicité et ne suit pas les utilisateurs à des fins commerciales. Un <a href="/transparence">rapport de transparence complet</a> est disponible sur le site.</p>
+          </section>
+
+          <section>
+            <h2>Questions fréquentes sur Apprenix</h2>
+            <dl>
+              <dt><strong>Apprenix est-il vraiment gratuit ?</strong></dt>
+              <dd>Oui, Apprenix est 100&nbsp;% gratuit, pour toujours. Aucune publicité, aucun abonnement, aucune inscription obligatoire.</dd>
+              <dt><strong>Faut-il créer un compte pour utiliser Apprenix ?</strong></dt>
+              <dd>Non. La grande majorité des outils est accessible sans compte. Un compte optionnel permet de sauvegarder sa progression.</dd>
+              <dt><strong>Apprenix fonctionne-t-il sur mobile et tablette ?</strong></dt>
+              <dd>Oui, Apprenix est 100&nbsp;% responsive et s'installe comme une application (PWA) sur iPhone, iPad et Android.</dd>
+              <dt><strong>Est-ce sécurisé pour les enfants ?</strong></dt>
+              <dd>Oui. Aucune pub, aucune donnée revendue, HTTPS, hébergement UE, RGPD. La page sécurité détaille toutes les mesures.</dd>
+            </dl>
+          </section>
+        </main>
+
+        <footer>
+          <p>© 2026 Apprenix — Plateforme éducative gratuite | <a href="/mentions-legales">Mentions légales</a> | <a href="/politique-confidentialite">Politique de confidentialité</a> | <a href="/transparence">Transparence</a> | <a href="/contact">Contact</a></p>
+          <p>Adresse : Tremblay-en-France, Seine-Saint-Denis (93), Île-de-France, France | Email : apprenix.contact@gmail.com</p>
+        </footer>
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+<!-- v1645-cache-bust -->

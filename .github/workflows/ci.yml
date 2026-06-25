@@ -1,0 +1,87 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# CI/CD Apprenix — GitHub Actions  v2
+# ══════════════════════════════════════════════════════════════════════════════
+# Déclenché : push sur master + pull requests
+# Vercel redéploie automatiquement après chaque push ✅
+# ══════════════════════════════════════════════════════════════════════════════
+
+name: CI — Lint & Build
+
+on:
+  push:
+    branches: [master, main]
+    # Ignorer les commits purement automatiques (heartbeat) pour éviter
+    # de cumuler 180+ runs sans valeur ajoutée
+    paths-ignore:
+      - 'public/last-deploy.json'
+  pull_request:
+    branches: [master, main]
+
+# ── Sécurité : permissions minimales ─────────────────────────────────────────
+permissions:
+  contents: read
+
+# ── Annule les runs en doublon (évite le spam de notifications) ──────────────
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-build:
+    name: 🔍 Lint + TypeScript + Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      # Clés Supabase ANON — publiques par conception (frontend bundle)
+      VITE_SUPABASE_URL: https://iomibxcwacyutzytqaoz.supabase.co
+      VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvbWlieGN3YWN5dXR6eXRxYW96Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4MDg2ODAsImV4cCI6MjA5NzM4NDY4MH0.ZcJTdJlze3Bf5BcWTCh6g_Tz18tyOgbjDpcGRt-3qQQ
+      VITE_APP_ID: app-cfkom5or162p
+
+    steps:
+      # ── 1. Récupérer le code ───────────────────────────────────────────────
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Configurer pnpm avant Node (requis pour le cache) ──────────────
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      # ── 3. Configurer Node.js 20 LTS avec cache pnpm ──────────────────────
+      - name: 🟢 Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      # ── 4. Installer les dépendances ──────────────────────────────────────
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ── 5. TypeScript check (tsgo — disponible via node_modules) ────────
+      - name: 🔷 TypeScript check
+        run: ./node_modules/.bin/tsgo -p tsconfig.check.json
+
+      # ── 6. Biome lint (biome — disponible via node_modules) ──────────────
+      - name: 🔍 Biome lint
+        run: npx biome lint
+
+      # ── 7. Vite build ────────────────────────────────────────────────────
+      - name: 🏗️ Build production
+        run: npx vite build --minify false --logLevel error
+
+      # ── 8. Vérifier que dist/ est complet (SPA routing OK) ───────────────
+      - name: ✅ Verify build output
+        run: |
+          echo "── Vérification du bundle ───────────────────────────────────"
+          test -f dist/index.html && echo "✅ dist/index.html présent" || (echo "❌ dist/index.html MANQUANT" && exit 1)
+          JS_COUNT=$(find dist/assets -name "*.js" 2>/dev/null | wc -l)
+          CSS_COUNT=$(find dist/assets -name "*.css" 2>/dev/null | wc -l)
+          echo "✅ JS chunks  : $JS_COUNT fichiers"
+          echo "✅ CSS bundles: $CSS_COUNT fichiers"
+          DIST_SIZE=$(du -sh dist/ 2>/dev/null | cut -f1)
+          echo "✅ Taille dist: $DIST_SIZE"
+          echo "──────────────────────────────────────────────────────────────"
+          echo "🚀 Build validé — Vercel déploiera automatiquement"

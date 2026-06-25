@@ -1,0 +1,164 @@
+{
+    "name": "Apprenix — Plateforme éducative gratuite",
+    "short_name": "Apprenix",
+    "description": "Plateforme éducative 100% gratuite pour tous les niveaux scolaires. Aide aux devoirs IA, flashcards, révision, organisation.",
+    "start_url": "/",
+    "scope": "/",
+    "id": "apprenix-pwa",
+    "display": "standalone",
+    "display_override": ["standalone", "minimal-ui"],
+    "orientation": "any",
+    "theme_color": "#FF6B0A",
+    "background_color": "#F5F7FB",
+    "lang": "fr",
+    "dir": "ltr",
+    "categories": [
+        "education",
+        "productivity"
+    ],
+    "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+    "icons": [
+        {
+            "src": "/icons/icon-72x72.png?v=9",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-96x96.png?v=9",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-128x128.png?v=9",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-144x144.png?v=9",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-152x152.png?v=9",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-192x192.png?v=9",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-384x384.png?v=9",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512x512.png?v=9",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-maskable-192x192.png?v=9",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-maskable-512x512.png?v=9",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/og-image.png",
+            "sizes": "1200x630",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Apprenix — Plateforme éducative sur ordinateur"
+        },
+        {
+            "src": "/icons/icon-512x512.png?v=9",
+            "sizes": "512x512",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Apprenix — Application mobile"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Aide aux devoirs IA",
+            "short_name": "Aide IA",
+            "description": "Obtenir de l'aide pour tes devoirs avec l'IA",
+            "url": "/aide-ia",
+            "icons": [
+                {
+                    "src": "/icons/icon-96x96.png?v=9",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Flashcards",
+            "short_name": "Flashcards",
+            "description": "Réviser avec les flashcards",
+            "url": "/flashcards",
+            "icons": [
+                {
+                    "src": "/icons/icon-96x96.png?v=9",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Organisation",
+            "short_name": "Agenda",
+            "description": "Gérer mon planning et mes tâches",
+            "url": "/organisation",
+            "icons": [
+                {
+                    "src": "/icons/icon-96x96.png?v=9",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Ressources",
+            "short_name": "Ressources",
+            "description": "Accéder aux fiches de révision et cours",
+            "url": "/ressources",
+            "icons": [
+                {
+                    "src": "/icons/icon-96x96.png?v=9",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "capture_links": "none",
+    "handle_links": "auto",
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "share_target": {
+        "action": "/aide-ia",
+        "method": "GET",
+        "params": {
+            "title": "title",
+            "text": "text",
+            "url": "url"
+        }
+    }
+}

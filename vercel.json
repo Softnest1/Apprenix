@@ -1,0 +1,73 @@
+{
+  "buildCommand": "./node_modules/.bin/vite build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+
+  "redirects": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "apprenix.xyz" }],        "destination": "https://apprenix.org/$1", "permanent": true },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.apprenix.xyz" }],    "destination": "https://apprenix.org/$1", "permanent": true },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.apprenix.org" }],    "destination": "https://apprenix.org/$1", "permanent": true },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "apprenix.vercel.app" }], "destination": "https://apprenix.org/$1", "permanent": true }
+  ],
+
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+
+  "headers": [
+    {
+      "source": "/(|index\\.html)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Pragma",        "value": "no-cache" },
+        { "key": "Expires",       "value": "0" }
+      ]
+    },
+    {
+      "source": "/(favicon\\.ico|favicon\\.png|apprenix-logo\\.png|og-image\\.png)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/icons/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control",                    "value": "public, max-age=31536000, immutable" },
+        { "key": "Cross-Origin-Resource-Policy",     "value": "cross-origin" }
+      ]
+    },
+    {
+      "source": "/last-deploy.json",
+      "headers": [
+        { "key": "Cache-Control",             "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Access-Control-Allow-Origin","value": "*" }
+      ]
+    },
+    {
+      "source": "/(sitemap\\.xml|robots\\.txt|manifest\\.json|browserconfig\\.xml)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",       "value": "nosniff" },
+        { "key": "X-Frame-Options",               "value": "DENY" },
+        { "key": "X-XSS-Protection",              "value": "1; mode=block" },
+        { "key": "Referrer-Policy",               "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security",     "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy",            "value": "camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()" },
+        { "key": "Cross-Origin-Opener-Policy",    "value": "same-origin-allow-popups" },
+        { "key": "Content-Security-Policy",       "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://vercel.live https://meet.jit.si; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://meet.jit.si; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: https://meet.jit.si https://*.jit.si; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fonts.googleapis.com https://fonts.gstatic.com https://miaoda-conversation-file.s3cdn.medo.dev https://data.education.gouv.fr https://*.sentry.io https://sentry.io https://vitals.vercel-insights.com https://va.vercel-scripts.com https://meet.jit.si wss://meet.jit.si https://*.jit.si wss://*.jit.si https://meet-jit-si-turnrelay.jitsi.net wss://meet-jit-si-turnrelay.jitsi.net https://stun.l.google.com; worker-src 'self' blob: https://meet.jit.si; frame-src 'self' https://www.google.com https://meet.jit.si; frame-ancestors 'none';" },
+        { "key": "X-Robots-Tag",                  "value": "index, follow" }
+      ]
+    }
+  ]
+}

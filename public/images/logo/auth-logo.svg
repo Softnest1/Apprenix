@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 512 512" role="img" aria-label="Logo Apprenix">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF8533"/>
+      <stop offset="100%" stop-color="#E55900"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#abg)"/>
+  <line x1="256" y1="26"  x2="256" y2="103" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+  <line x1="220" y1="61"  x2="292" y2="61"  stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+  <line x1="225" y1="30"  x2="256" y2="61"  stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="287" y1="30"  x2="256" y2="61"  stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="225" y1="92"  x2="256" y2="61"  stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="287" y1="92"  x2="256" y2="61"  stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <line x1="256" y1="113" x2="389" y2="440" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <line x1="256" y1="113" x2="190" y2="256" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <line x1="190" y1="256" x2="158" y2="256" stroke="#ffffffCC" stroke-width="28" stroke-linecap="round"/>
+  <line x1="158" y1="256" x2="138" y2="348" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <line x1="138" y1="348" x2="112" y2="348" stroke="#ffffffCC" stroke-width="28" stroke-linecap="round"/>
+  <line x1="112" y1="348" x2="97"  y2="440" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <line x1="168" y1="318" x2="333" y2="318" stroke="#fff" stroke-width="30" stroke-linecap="round"/>
+  <polyline points="226,370 256,404 286,370" fill="none" stroke="#ffffffBB" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

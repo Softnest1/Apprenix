@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       Sitemap Apprenix — https://apprenix.org
+       Mis à jour : 2026-06-18 | 52 URLs | Toutes pages publiques indexables
+       Pages privées exclues : /profil, /tableau-de-bord, /recuperation, /contact/merci
+  ═══════════════════════════════════════════════════════════════════ -->
+
+  <!-- ── PRIORITÉ 1.0 — Page d'accueil ── -->
+  <url>
+    <loc>https://apprenix.org/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apprenix.org/"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Apprenix — Aide IA, flashcards, révision 100% gratuits | CP → Fac</image:title>
+      <image:caption>Plateforme éducative gratuite : aide IA, flashcards, révision, organisation. Accessible DYS et ULIS.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ── PRIORITÉ 0.95 — Outil phare ── -->
+  <url>
+    <loc>https://apprenix.org/aide-ia</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/aide-ia"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Aide aux devoirs IA — Toutes matières, CP → Bac+5, gratuit</image:title>
+      <image:caption>Assistant IA pédagogique gratuit : explication étape par étape, mode socratique, toutes matières.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ── PRIORITÉ 0.90 ── -->
+  <url>
+    <loc>https://apprenix.org/ressources</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/ressources"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Ressources pédagogiques gratuites — Fiches révision, résumés, annales</image:title>
+      <image:caption>Fiches de révision, résumés de cours et annales pour tous niveaux scolaires — conformes Éduscol.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/communaute</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/communaute"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.85 ── -->
+  <url>
+    <loc>https://apprenix.org/scanner</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/scanner"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Scanner de devoirs IA — Photo d'exercice → analyse instantanée</image:title>
+      <image:caption>Prends en photo ton exercice, l'IA l'analyse et l'explique en secondes. Gratuit, sans inscription.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/flashcards</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/flashcards"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Flashcards — Répétition espacée scientifique, mémorisation 2× plus rapide</image:title>
+      <image:caption>Crée tes flashcards ou utilise celles d'Apprenix. Algorithme de répétition espacée pour mémoriser 2× plus vite.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/linguistique</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/linguistique"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Outils linguistiques gratuits — Conjugueur, correcteur, dictionnaire, traducteur</image:title>
+      <image:caption>Conjugueur français complet, correcteur orthographique, dictionnaire, aide dissertation, traducteur multilingue.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/maths-sciences</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/maths-sciences"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Maths et Sciences — Calculatrice scientifique, formules, tableau périodique</image:title>
+      <image:caption>Calculatrice scientifique, bibliothèque de formules et tableau périodique interactif. Gratuit pour tous les niveaux.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/organisation</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/organisation"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/actualites</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/actualites"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.80 ── -->
+  <url>
+    <loc>https://apprenix.org/parents</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/parents"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/enseignants</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/enseignants"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/accessibilite</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/accessibilite"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/inclusion</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/inclusion"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.75 ── -->
+  <url>
+    <loc>https://apprenix.org/notes</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/notes"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/carte-mentale</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/carte-mentale"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/quiz</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/quiz"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/examen</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/examen"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/ressources-officielles</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/ressources-officielles"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/espace</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/mission</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/mission"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/securite</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/securite"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/faq</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/faq"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.70 ── -->
+  <url>
+    <loc>https://apprenix.org/espace/primaire</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace/primaire"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/espace/college</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace/college"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/espace/lycee</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace/lycee"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/espace/superieur</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace/superieur"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/focus</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/focus"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/motivation</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/motivation"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/contact</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/contact"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/transparence</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/transparence"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/etablissements</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/etablissements"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.65 ── -->
+  <url>
+    <loc>https://apprenix.org/connexion</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/connexion"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/nouveautes</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/nouveautes"/>
+  </url>
+
+  <!-- ── Route /visio — Classe virtuelle (ajouté 2026-06-18) ── -->
+  <url>
+    <loc>https://apprenix.org/visio</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/visio"/>
+  </url>
+
+  <!-- ── Route /parents-espace — Espace parents connecté (ajouté 2026-06-18) ── -->
+  <url>
+    <loc>https://apprenix.org/parents-espace</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/parents-espace"/>
+  </url>
+
+  <!-- ── PRIORITÉ 0.30 — Pages légales (confiance, E-E-A-T) ── -->
+  <url>
+    <loc>https://apprenix.org/mentions-legales</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/mentions-legales"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/politique-confidentialite</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/politique-confidentialite"/>
+  </url>
+
+  <url>
+    <loc>https://apprenix.org/cgu</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/cgu"/>
+  </url>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       LANDING PAGES SEO — trafic organique ciblé (ajoutées 2026-06-18)
+       Optimisées pour les recherches à fort volume sur Google France
+  ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- "révision bac 2026" "bac 2026 préparation" — 10k–30k/mois -->
+  <url>
+    <loc>https://apprenix.org/revision-bac-2026</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/revision-bac-2026"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Révision Bac 2026 — Toutes matières, aide IA gratuite | Apprenix</image:title>
+      <image:caption>Prépare le Bac 2026 avec l'IA : fiches, flashcards, annales, planning. Gratuit, sans inscription.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "aide devoirs gratuit" "aide aux devoirs IA" — 15k–40k/mois -->
+  <url>
+    <loc>https://apprenix.org/aide-devoirs-gratuit</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/aide-devoirs-gratuit"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Aide aux devoirs gratuite avec l'IA — CP → Bac+5 | Apprenix</image:title>
+      <image:caption>Aide aux devoirs gratuite et immédiate par IA. Toutes matières, tous niveaux, 24h/24. Sans pub.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "révision bac français" "bac français 2026" — 8k–20k/mois -->
+  <url>
+    <loc>https://apprenix.org/bac-francais</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/bac-francais"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Révision Bac de Français 2026 — Aide IA, fiches, méthodes | Apprenix</image:title>
+      <image:caption>Commentaire, dissertation, explication linéaire, oral. Aide IA + flashcards œuvres au programme.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "flashcards gratuites" "répétition espacée" — 5k–12k/mois -->
+  <url>
+    <loc>https://apprenix.org/flashcards-gratuit</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/flashcards-gratuit"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Flashcards Gratuites en Ligne — Répétition espacée, IA | Apprenix</image:title>
+      <image:caption>Crée des flashcards avec l'IA en 1 clic. Algorithme SRS, méthode Leitner. Gratuit, mobile, hors ligne.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "révision brevet maths" "brevet maths 2026" — 6k–15k/mois -->
+  <url>
+    <loc>https://apprenix.org/brevet-maths</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/brevet-maths"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Révision Brevet Maths 2026 — Aide IA, formules, exercices | Apprenix</image:title>
+      <image:caption>Algèbre, géométrie, statistiques, probabilités. Aide IA pas à pas, formules, plan de révision express.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "bac philo 2026" "dissertation philosophie bac" — 12k–25k/mois -->
+  <url>
+    <loc>https://apprenix.org/bac-philo</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/bac-philo"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Bac Philo 2026 — Méthode dissertation, fiches auteurs &amp; notions | Apprenix</image:title>
+      <image:caption>Méthode dissertation 6 étapes, 16 notions clés, 8 auteurs incontournables. Gratuit, sans pub.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "cours maths gratuit" "cours mathématiques gratuit en ligne" — 18k–30k/mois -->
+  <url>
+    <loc>https://apprenix.org/cours-maths-gratuit</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/cours-maths-gratuit"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Cours de Maths Gratuits — Collège, Lycée, Bac | Apprenix</image:title>
+      <image:caption>Formules clés, chapitres par niveau (6ème→Terminale), aide IA et calculatrice. Gratuit, sans pub.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- "méthode de travail lycée" "organisation scolaire efficace" — 8k–15k/mois -->
+  <url>
+    <loc>https://apprenix.org/methode-de-travail</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/methode-de-travail"/>
+    <image:image>
+      <image:loc>https://apprenix.org/og-image.png</image:loc>
+      <image:title>Méthode de Travail Efficace — Lycée &amp; Collège | Apprenix</image:title>
+      <image:caption>Pomodoro, Feynman, répétition espacée, Deep Work. 6 méthodes validées par les neurosciences.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ── Nouvelles pages ajoutées 2026-06-18 ── -->
+
+  <!-- /base-reponses — page publique base de connaissances -->
+  <url>
+    <loc>https://apprenix.org/base-reponses</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/base-reponses"/>
+  </url>
+
+  <!-- /plan-du-site — sitemap HTML navigable (aide crawlabilité) -->
+  <url>
+    <loc>https://apprenix.org/plan-du-site</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/plan-du-site"/>
+  </url>
+
+  <!-- /espace-etudiant — page d'accueil espace élève visiteur -->
+  <url>
+    <loc>https://apprenix.org/espace</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apprenix.org/espace"/>
+  </url>
+
+</urlset>

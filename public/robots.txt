@@ -1,0 +1,103 @@
+# robots.txt — Apprenix
+# Dernière mise à jour : 2026-06-18
+# Plateforme éducative 100% gratuite — https://apprenix.org
+# Domaine canonique (Yandex)
+Host: apprenix.org
+
+# ── Moteurs légitimes : accès complet ────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
+
+# ── Moteurs spécifiques : crawl-delay conseillé ───────────────────────────────
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: Naverbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Teoma
+Allow: /
+
+# ── Bots SEO — limiter le crawl budget ───────────────────────────────────────
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+# ── Scrapers IA — INTERDITS (entraînement LLM) ───────────────────────────────
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: ai2-bot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+# ── Scrapers de contenu ───────────────────────────────────────────────────────
+User-agent: SiteAuditor
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Crawl-delay: 30
+
+# ── Page accessibilité toujours accessible ───────────────────────────────────
+Allow: /accessibilite
+
+# ── Sitemaps ──────────────────────────────────────────────────────────────────
+Sitemap: https://apprenix.org/sitemap.xml
+Sitemap: https://apprenix.org/sitemap-index.xml

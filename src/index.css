@@ -1,0 +1,680 @@
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Police OpenDyslexic (auto-hébergée via CDN) ──────────────────────────── */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/OpenDyslexic-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Apprenix — Design System: Swiss Modern / Energetic Educational */
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --radius: 0.375rem;
+
+    /* Core */
+    --background: 220 20% 98%;
+    --foreground: 220 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    /* Primary — Orange électrique */
+    --primary: 14 100% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 220 25% 20%;
+
+    /* Muted */
+    --muted: 220 14% 93%;
+    --muted-foreground: 220 12% 38%;
+
+    /* Accent — Vert menthe (succès/gamification) */
+    --accent: 145 63% 92%;
+    --accent-foreground: 145 63% 22%;
+
+    /* Success / Warning / Destructive / Info */
+    --success: 145 63% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 211 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Borders / Inputs */
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 14 100% 53%;
+
+    /* Education custom */
+    --education-blue: 211 100% 50%;
+    --education-green: 145 63% 40%;
+
+    /* Charts */
+    --chart-1: 14 100% 53%;
+    --chart-2: 145 63% 40%;
+    --chart-3: 211 100% 50%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 280 65% 55%;
+
+    /* Sidebar */
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 220 10% 85%;
+    --sidebar-primary: 14 100% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 14 100% 53%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(14 100% 53%) 0%, hsl(30 100% 58%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
+    --gradient-background: linear-gradient(180deg, hsl(220 20% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(14 100% 53%) 0%, hsl(145 63% 40%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(220 25% 12% / 0.08), 0 1px 2px -1px hsl(220 25% 12% / 0.06);
+    --shadow-hover: 0 4px 12px 0 hsl(220 25% 12% / 0.12), 0 2px 4px -1px hsl(220 25% 12% / 0.08);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 220 25% 9%;
+    --foreground: 220 10% 92%;
+    --card: 220 25% 12%;
+    --card-foreground: 220 10% 92%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 10% 92%;
+
+    /* Primary — Orange électrique (unchanged) */
+    --primary: 14 100% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 10% 90%;
+
+    /* Muted */
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 68%;
+
+    /* Accent */
+    --accent: 145 40% 18%;
+    --accent-foreground: 145 63% 72%;
+
+    /* Status */
+    --success: 145 63% 44%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 211 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Borders / Inputs */
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 14 100% 53%;
+
+    /* Charts */
+    --chart-1: 14 100% 58%;
+    --chart-2: 145 60% 50%;
+    --chart-3: 211 90% 60%;
+    --chart-4: 38 92% 55%;
+    --chart-5: 280 65% 65%;
+
+    /* Sidebar */
+    --sidebar-background: 220 30% 7%;
+    --sidebar-foreground: 220 10% 80%;
+    --sidebar-primary: 14 100% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 25% 14%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 25% 12%;
+    --sidebar-ring: 14 100% 53%;
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.30), 0 1px 2px -1px hsl(0 0% 0% / 0.20);
+    --shadow-hover: 0 4px 12px 0 hsl(0 0% 0% / 0.40), 0 2px 4px -1px hsl(0 0% 0% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar { width: 6px; background: transparent; }
+  *::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+  /* ── iOS & cross-device global fixes ─────────────────────────────────────── */
+  html {
+    /* Prevent iOS auto-zoom on input focus */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Use dynamic viewport height — fixes 100vh iOS Safari bug */
+    height: -webkit-fill-available;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* iOS Safari momentum scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* Fill available on iOS */
+    min-height: -webkit-fill-available;
+    /* Empêche tout débordement horizontal sur iOS/Android/tablette.
+       Aucun élément ne peut provoquer un scroll latéral de page.     */
+    overflow-x: hidden;
+  }
+
+  /* ── Remove 300ms tap delay + blue highlight on iOS/Android ──────────────── */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  a, button, [role="button"], input, textarea, select, label {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ── Focus ring : clavier uniquement — pas de flash bleu au tap mobile ─────
+     :focus-visible = navigation clavier → ring conservé pour accessibilité
+     :focus sans :focus-visible = clic souris / tap tactile → ring supprimé     */
+  *:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ── Safe-area insets — iPhone notch / Dynamic Island / home bar ─────────── */
+  #root {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    /* NE PAS mettre padding-bottom ici — le fond de #root (bg-background) serait
+       visible sous le footer sombre → bande blanche/claire sur Android + iOS.
+       La safe-area du bas est gérée directement par le footer (bg-sidebar). */
+  }
+
+  /* ── Éléments fixes en bas (Sheet, FAB, bottom bar) — iOS home bar ────────── */
+  .fixed-bottom-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  }
+
+  /* ── iOS: scroll inertiel natif sur tous les containers scrollables ────────── */
+  [data-scroll], .overflow-y-auto, .overflow-x-auto, .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* ── Skip link (accessibilité) — masqué visuellement, visible au focus clavier ── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 9999;
+    background-color: hsl(var(--primary));
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 0 0 8px 0;
+    text-decoration: none;
+    white-space: nowrap;
+    /* Invisible sauf au focus clavier — jamais visible à la souris ou au chargement */
+    pointer-events: none;
+  }
+  .skip-link:focus {
+    top: 0;
+    pointer-events: auto;
+    outline: 3px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* ── btn-cta — bouton CTA principal avec fond primary ──────────────────── */
+  .btn-cta {
+    background-color: hsl(var(--primary));
+    color: white !important;
+  }
+  .btn-cta:hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+
+  /* ── iOS Safari: empêcher le rebond sur le fond de page (body bounce) ──────── */
+  html {
+    overscroll-behavior-y: none;
+  }
+
+  /* ── Inputs natifs — dark mode complet (iOS, Android, desktop) ─────────── */
+  input, textarea, select {
+    @apply bg-background text-foreground;
+    color-scheme: inherit;
+    /* Prevent iOS zoom: keep font-size >= 16px */
+    font-size: max(16px, 1rem);
+  }
+  input::placeholder, textarea::placeholder {
+    @apply text-muted-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+  70%  { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+}
+
+@layer utilities {
+  /* ── Textes dégradés ──────────────────────────────────────────────────── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+  .gradient-text-success {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-success);
+  }
+
+  /* ── Fonds dégradés ───────────────────────────────────────────────────── */
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-mesh {
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, hsl(211 100% 50% / 0.08) 0%, transparent 50%),
+      hsl(var(--background));
+  }
+  .bg-hero-pattern {
+    background-color: hsl(var(--primary));
+    background-image:
+      radial-gradient(circle at 20% 80%, hsl(0 0% 100% / 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, hsl(0 0% 100% / 0.06) 0%, transparent 35%),
+      radial-gradient(circle at 50% 50%, hsl(30 100% 60% / 0.15) 0%, transparent 60%);
+  }
+
+  /* ── Cartes & surfaces ────────────────────────────────────────────────── */
+  .card-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 8px 24px hsl(var(--foreground) / 0.10), 0 2px 6px hsl(var(--foreground) / 0.06);
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3), 0 8px 24px hsl(var(--primary) / 0.12);
+  }
+
+  /* ── Bordure gauche accent ────────────────────────────────────────────── */
+  .border-l-accent-bar {
+    @apply border-l-4 border-l-primary pl-4;
+  }
+
+  /* ── Animations ───────────────────────────────────────────────────────── */
+  .animate-fade-up {
+    animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-fade-left {
+    animation: fadeInLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  .animate-pulse-ring {
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  /* Délais d'animation */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* ── Badge shimmer ────────────────────────────────────────────────────── */
+  .badge-shimmer {
+    background: linear-gradient(90deg,
+      hsl(var(--primary) / 0.15) 0%,
+      hsl(var(--primary) / 0.30) 50%,
+      hsl(var(--primary) / 0.15) 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  /* ── Sidebar ──────────────────────────────────────────────────────────── */
+  .sidebar-nav-active {
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(14 100% 46%) 100%);
+  }
+  .sidebar-nav-item {
+    @apply relative transition-[background-color,opacity,transform] duration-150;
+  }
+  .sidebar-nav-item:hover::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg;
+    background: hsl(var(--sidebar-accent));
+  }
+
+  /* ── Bouton action secondaire ────────────────────────────────────────── */
+  .btn-action {
+    @apply border-border/60 text-foreground hover:bg-secondary/80 hover:border-border transition-[background-color,border-color,box-shadow] duration-150;
+  }
+
+  /* ── Texte lisible ────────────────────────────────────────────────────── */
+  .text-display {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+  }
+  .text-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* ── Effets visuels ───────────────────────────────────────────────────── */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.25), 0 0 6px hsl(var(--primary) / 0.15);
+  }
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/60;
+  }
+  .section-divider {
+    @apply relative;
+  }
+  .section-divider::before {
+    content: '';
+    @apply absolute -top-px left-0 w-12 h-0.5 rounded-full;
+    background: hsl(var(--primary));
+  }
+}
+
+/* ── Barre de progression navigation (NProgress style) ──────────────────────
+   Utilisée par PageLoader dans routes.tsx lors du chargement lazy des pages.
+   L'animation simule une progression 0→85% puis disparaît quand la page monte.
+──────────────────────────────────────────────────────────────────────────── */
+@keyframes page-progress {
+  0%   { transform: translateX(-100%); width: 100%; }
+  30%  { transform: translateX(-40%); }
+  70%  { transform: translateX(-10%); }
+  100% { transform: translateX(0%); opacity: 0; }
+}
+
+.animate-page-progress {
+  animation: page-progress 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ── Accessibilité : respect du mode réduit-mouvement ────────────────────────
+   Désactive toutes les animations/transitions pour les utilisateurs qui
+   ont activé "Réduire les animations" (iOS, macOS, Android, Windows).
+──────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ACCESSIBILITÉ v2 — data-attributes sur <html>, ZÉRO !important
+   Sélecteurs html[data-a11y-*] overrident uniquement les CSS variables.
+   Toutes les classes Tailwind héritent automatiquement des nouvelles valeurs.
+   WCAG 2.1 AA / RGAA 4.1 — Chrome, Firefox, Safari, Edge, iOS, Android.
+══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Taille du texte — font-size-scale sur :root ────────────────────────── */
+html[data-a11y-fontsize="1"] {
+  --a11y-font-scale: 1.25;
+}
+html[data-a11y-fontsize="2"] {
+  --a11y-font-scale: 1.5;
+}
+/* Appliquer l'échelle via rem sur l'élément racine */
+html[data-a11y-fontsize="1"] { font-size: calc(16px * 1.25); }
+html[data-a11y-fontsize="2"] { font-size: calc(16px * 1.5); }
+
+/* ── 2. Contraste élevé — override de CSS variables uniquement ─────────────── */
+html[data-a11y-contrast="high"] {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 8%;
+  --border: 0 0% 0%;
+  --primary: 220 100% 30%;
+  --primary-foreground: 0 0% 100%;
+  --sidebar-background: 0 0% 5%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-border: 0 0% 40%;
+  --ring: 220 100% 30%;
+}
+html[data-a11y-contrast="high"].dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 92%;
+  --border: 0 0% 100%;
+  --primary: 210 100% 72%;
+  --primary-foreground: 0 0% 0%;
+  --sidebar-background: 0 0% 0%;
+  --sidebar-foreground: 0 0% 100%;
+  --ring: 210 100% 72%;
+}
+
+/* ── 3. Police Atkinson Hyperlegible ────────────────────────────────────────── */
+html[data-a11y-font="atkinson"] {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ── 4. Police OpenDyslexic ─────────────────────────────────────────────────── */
+html[data-a11y-font="opendyslexic"] {
+  font-family: 'OpenDyslexic', sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.8;
+}
+
+/* ── 5. Animations réduites ─────────────────────────────────────────────────── */
+html[data-a11y-motion="reduced"] *,
+html[data-a11y-motion="reduced"] *::before,
+html[data-a11y-motion="reduced"] *::after {
+  animation-duration: 0.01ms;
+  animation-iteration-count: 1;
+  transition-duration: 0.01ms;
+  scroll-behavior: auto;
+}
+
+/* ── 6. Espacement élargi (WCAG 1.4.12) ─────────────────────────────────────── */
+html[data-a11y-spacing="wide"] {
+  letter-spacing: 0.1em;
+  word-spacing: 0.14em;
+  line-height: 1.8;
+}
+html[data-a11y-spacing="wide"] p,
+html[data-a11y-spacing="wide"] li {
+  margin-bottom: 0.75em;
+}
+
+/* ── 7. Mode projecteur enseignant ──────────────────────────────────────────── */
+html[data-a11y-presentation="true"] {
+  font-size: calc(16px * 1.375);
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --muted-foreground: 0 0% 12%;
+  --border: 0 0% 20%;
+}
+
+
+/* ── Protection impression — filigrane Apprenix ──────────────────────────────
+   Toute page imprimée affiche automatiquement le copyright Apprenix.
+   Cela protège les contenus pédagogiques copiés via Ctrl+P.
+──────────────────────────────────────────────────────────────────────────── */
+@media print {
+  body::before {
+    content: "© Apprenix — apprenix.fr — Reproduction interdite sans autorisation";
+    display: block;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6pt;
+    margin-bottom: 12pt;
+    letter-spacing: 0.5px;
+  }
+
+  body::after {
+    content: "Ce document est la propriété exclusive d'Apprenix (apprenix.fr). Toute reproduction, distribution ou exploitation commerciale est interdite sans autorisation écrite préalable. © Apprenix " attr(data-year) " — Tous droits réservés.";
+    display: block;
+    text-align: center;
+    font-size: 8pt;
+    color: #777;
+    border-top: 1px solid #ccc;
+    padding-top: 6pt;
+    margin-top: 16pt;
+  }
+
+  /* Masquer les éléments de navigation à l'impression */
+  header, aside, nav, footer, .no-print {
+    display: none !important;
+  }
+
+  /* Forcer l'affichage du contenu principal uniquement */
+  main {
+    display: block !important;
+  }
+}
+
+/* ── Protection sélection texte sur contenus protégés ───────────────────────
+   Utiliser la classe .protected-content sur les zones à protéger.
+──────────────────────────────────────────────────────────────────────────── */
+.protected-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   LUMINOSITÉ & CONDITIONS EXTRÊMES
+   • prefers-contrast:more  → plein soleil ☀️, iOS "Augmenter le contraste"
+   • forced-colors          → Windows Contraste élevé (HC Black / HC White)
+   • @media (display-mode)  → PWA standalone (pas de chrome navigateur)
+   Compatible : iOS 14+, Android Chrome 89+, Windows 10+, macOS Ventura+
+══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Plein soleil / luminosité ambiante élevée ───────────────────────────────
+   Activé automatiquement par iOS "Réglages > Accessibilité > Augmenter le
+   contraste" et sur certains écrans OLED en plein jour.
+   Renforce les bordures, assombrit les textes secondaires, durcit les ombres.
+──────────────────────────────────────────────────────────────────────────── */
+@media (prefers-contrast: more) {
+  :root {
+    /* Texte secondaire plus sombre → lisible même sous forte luminosité */
+    --muted-foreground: 220 20% 22%;
+    /* Bordures plus marquées → séparations visibles en plein soleil */
+    --border: 220 20% 62%;
+    --input: 220 20% 62%;
+    /* Sidebar : contraste renforcé */
+    --sidebar-foreground: 220 10% 96%;
+    --sidebar-border: 220 20% 32%;
+  }
+  .dark {
+    /* Mode sombre + fort contraste → textes très lumineux sur fond très sombre */
+    --muted-foreground: 220 10% 82%;
+    --border: 220 20% 40%;
+    --input: 220 20% 40%;
+  }
+  /* Ombres plus marquées sur cartes et boutons */
+  .shadow-sm  { box-shadow: 0 1px 4px 0 rgba(0,0,0,0.22) !important; }
+  .shadow-md  { box-shadow: 0 4px 12px 0 rgba(0,0,0,0.28) !important; }
+  .shadow-lg  { box-shadow: 0 8px 24px 0 rgba(0,0,0,0.32) !important; }
+  /* Focus ring plus épais — doigt sous soleil */
+  *:focus-visible {
+    outline-width: 3px !important;
+    outline-offset: 3px !important;
+  }
+}
+
+/* ── Windows Contraste élevé (HC Black, HC White, Aquatic, Desert) ───────────
+   forced-colors remplace les couleurs CSS par les couleurs système Windows.
+   On restaure uniquement les éléments qui ont besoin d'un traitement spécial.
+──────────────────────────────────────────────────────────────────────────── */
+@media (forced-colors: active) {
+  /* Préserver les dégradés de progression (barres XP, streaks) */
+  [class*="bg-gradient"],
+  [class*="gradient-text"] {
+    forced-color-adjust: none;
+  }
+  /* Boutons primaires : conserver leur fond coloré */
+  .btn-cta {
+    forced-color-adjust: none;
+    background-color: Highlight !important;
+    color: HighlightText !important;
+    border: 2px solid ButtonText !important;
+  }
+  /* Skip-link : toujours visible */
+  .skip-link:focus {
+    forced-color-adjust: none;
+    background: Highlight !important;
+    color: HighlightText !important;
+    outline: 3px solid ButtonText !important;
+  }
+  /* Icônes SVG — laisser le système gérer la couleur */
+  svg { forced-color-adjust: auto; }
+}
+
