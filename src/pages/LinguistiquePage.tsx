@@ -843,9 +843,9 @@ const LinguistiquePage: React.FC = () => {
                 <div className="space-y-3">
                   {/* Résultat : texte corrigé ou badge "aucune erreur" */}
                   {corrections.errors.length === 0 ? (
-                    <div className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
-                      <CheckSquare className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" />
-                      <p className="text-sm text-green-700 dark:text-green-300 font-medium">
+                    <div className="flex items-center gap-2 p-3 bg-success/10 border border-success/30 rounded-lg">
+                      <CheckSquare className="w-4 h-4 text-success shrink-0" />
+                      <p className="text-sm text-success font-medium">
                         Aucune erreur détectée — ton texte est correct selon les règles disponibles.
                       </p>
                     </div>

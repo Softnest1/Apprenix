@@ -1120,7 +1120,7 @@ const AideIAPage: React.FC = () => {
             {([
               { icon: '🃏', title: 'Flashcards', desc: 'Révise par répétition espacée — crée tes propres cartes ou utilise celles des enseignants', path: '/flashcards', cta: 'Ouvrir les flashcards' },
               { icon: '📝', title: 'Quiz & QCM', desc: 'Teste tes connaissances sur toutes les matières — corrigés instantanés', path: '/quiz', cta: 'Faire un quiz' },
-              { icon: '📅', title: 'Planning de révision', desc: 'Organise tes révisions avec un planning personnalisé par matière et niveau', path: '/planning', cta: 'Voir mon planning' },
+              { icon: '📅', title: 'Planning de révision', desc: 'Organise tes révisions avec un planning personnalisé par matière et niveau', path: '/organisation', cta: 'Voir mon planning' },
               { icon: '📸', title: 'Scanner de devoirs', desc: 'Prends en photo ton exercice — notre enseignant te répond par message', path: '/scanner', cta: 'Scanner un devoir' },
               { icon: '📚', title: 'Fiches de révision', desc: 'Toutes les fiches méthode rédigées par nos enseignants, par matière et niveau', path: '/ressources', cta: 'Voir les fiches' },
               { icon: '🏆', title: 'Mes progrès', desc: 'Suis tes résultats, tes badges et ta progression semaine par semaine', path: '/profil', cta: 'Voir mes progrès' },

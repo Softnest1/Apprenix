@@ -774,7 +774,7 @@ const ExamCalendarBanner: React.FC<{ categoryId: 'college' | 'lycee' }> = ({ cat
                                   <div className={cn('w-4 h-4 rounded-md flex items-center justify-center shrink-0', colorBg)}>
                                     <Icon className={cn('w-2.5 h-2.5', colorText)} aria-hidden="true" />
                                   </div>
-                                  <span className="text-gray-800">{label}</span>
+                                  <span className="text-foreground">{label}</span>
                                 </div>
                               </Link>
                             ))}
