@@ -4,10 +4,8 @@
   "installCommand": "pnpm install --no-frozen-lockfile",
 
   "redirects": [
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "apprenix.xyz" }],        "destination": "https://apprenix.org/$1", "permanent": true },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.apprenix.xyz" }],    "destination": "https://apprenix.org/$1", "permanent": true },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.apprenix.org" }],    "destination": "https://apprenix.org/$1", "permanent": true },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "apprenix.vercel.app" }], "destination": "https://apprenix.org/$1", "permanent": true }
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.apprenix.xyz" }],    "destination": "https://apprenix.xyz/$1", "permanent": true },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "apprenix.vercel.app" }], "destination": "https://apprenix.xyz/$1", "permanent": true }
   ],
 
   "rewrites": [
